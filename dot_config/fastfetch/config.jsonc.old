@@ -1,0 +1,135 @@
+{
+  //                                                                           &
+  //                                                                        &&&&&&&
+  //                                                                         &&|&&& &&
+  //                                                                          &/&| &
+  //                                                                            &|& &
+  //                                                                            /|\       &
+  //                                                                            \|         &&&&&
+  //                                                                             |/        &&&&&&&
+  //                                                                            /~|  &&/& \|& &  &
+  //                                                                              /|\ &/&&/_/
+  //                                                                              |/  \|   &
+  //                                                &     &                      /~/ / //
+  //                                                  &&&&&&                     /|/
+  //                                                    &&&__\&& &&              /~
+  //                                                   &&&&&  \_&&|     \|       \|/~
+  //                                                        &     \_\_\   \__   /|/~
+  //                                                         &    \\|       \__//~
+  //                                                               \\_      /~|
+  //                                                                         /~/~
+  //                                                          :___________./~~~\.___________:
+  //                                                           \                           /
+  //                                                            \_________________________/
+  //                                                            (_)                     (_)
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "display": {
+    "separator": "  ",
+    "color": {
+      "separator": "#04a5e5"
+    }
+  },
+  "logo": {
+    "type": "builtin",
+    "padding": {
+      "top": 1,
+      "left": 3
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "{##c6a0f6}  System Information"
+    },
+    {
+      "type": "custom",
+      "format": "{##c6a0f6}══════════════════════"
+    },
+    // "break",
+    {
+      "type": "custom",
+      "format": "{##d20f39} OS"
+    },
+    {
+      "type": "os",
+      "key": "├─  Distro",
+      "keyColor": "#d20f39"
+    },
+    {
+      "type": "kernel",
+      "key": "├─  Kernel",
+      "keyColor": "#d20f39"
+    },
+    {
+      "type": "custom",
+      "format": "{##a6d189} Desktop Environment"
+    },
+    {
+      "type": "wm",
+      "key": "├─ 󱂬 WM",
+      "keyColor": "#a6d189"
+    },
+    {
+      "type": "wmtheme",
+      "key": "├─ 󰸌 Theme",
+      "keyColor": "#a6d189"
+    },
+    {
+      "type": "custom",
+      "format": "{##f5a97f} Terminal"
+    },
+    {
+      "type": "shell",
+      "key": "├─  Shell",
+      "keyColor": "#f5a97f"
+    },
+    {
+      "type": "terminal",
+      "key": "├─  Term",
+      "keyColor": "#f5a97f"
+    },
+    {
+      "type": "custom",
+      "format": "{##8aadf4} Hardware"
+    },
+    {
+      "type": "cpu",
+      "key": "├─  CPU",
+      "keyColor": "#8aadf4"
+    },
+    {
+      "type": "gpu",
+      "key": "├─ 󰺵 GPU",
+      "keyColor": "#8aadf4"
+    },
+    {
+      "type": "memory",
+      "key": "├─  Memory",
+      "keyColor": "#8aadf4"
+    },
+    {
+      "type": "disk",
+      "key": "└─ 󰋊 Disk ({mountpoint})",
+      "keyColor": "#8aadf4"
+    },
+    //    {
+    //      "type": "display",
+    //      "key": "├─ 󰍹 Display ({name})",
+    //      "keyColor": "#8aadf4"
+    //    },
+    //    {
+    //      "type": "battery",
+    //      "key": "└─  Battery",
+    //      "keyColor": "#8aadf4"
+    //    },
+    "break",
+    {
+      "type": "custom",
+      "format": "{##d20f39}○─{##df8e1d}○─{##fe640b}○─{##1e66f5}○─{##ea76cb}○─{##04a5e5}○─{##8839ef}○─{##4c4f69}○"
+    }
+    //    {
+    //      "type": "colors",
+    //      "symbol": "circle"
+    //    }
+  ]
+}

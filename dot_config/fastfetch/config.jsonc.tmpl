@@ -1,0 +1,143 @@
+//   _____ _____ _____ _____ _____ _____ _____ _____ _____ 
+//  |   __|  _  |   __|_   _|   __|   __|_   _|     |  |  |
+//  |   __|     |__   | | | |   __|   __| | | |   --|     |
+//  |__|  |__|__|_____| |_| |__|  |_____| |_| |_____|__|__|  HYPRLAND
+//
+//  by Bina
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+{{ if eq .chezmoi.osRelease.id "fedora" }}
+  "logo": {
+    "source": "~/Miscellaneous/Pictures/maomao_square_strans.png",
+    "type": "kitty",
+    "height": 11,
+    "padding": {
+      "top": 5,
+      "left": 3
+    }
+  },
+{{ else if eq .chezmoi.osRelease.id "arch" }}
+{{ else if eq .chezmoi.osRelease.id "endeavouros" }}
+  "logo": {
+    "source": "~/Miscellaneous/Pictures/maachue/Chue-stran-square-better.png",
+    "type": "kitty",
+    "height": 10,
+    "padding": {
+      "top": 6,
+      "left": 3
+    }
+  },
+{{ else }}
+  "logo": {
+    "source": "D:/maachue/Chue-stran-square-better.png",
+    "type": "kitty-direct",
+    "width": 22,
+    "height": 10,
+    "padding": {
+        "top": 8,
+        "left": 3
+      }
+  },
+{{ end }}
+  "display": {
+    "separator": " "
+  },
+  "modules": [
+    "break",
+    "break",
+    "break",
+    // {
+    //   "type": "custom",
+    //   "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m"
+    // },
+    "break",
+    {
+      "type": "title",
+      "keyWidth": 10
+    },
+    "break",
+    {
+      "type": "os",
+{{ if eq .chezmoi.osRelease.id "fedora" }}
+      "key": " ",
+{{ else if eq .chezmoi.osRelease.id "arch" }}
+      "key": " ",
+{{ else }}
+      "key": " ",
+{{ end }}
+      "keyColor": "34" // = color4
+    },
+    {
+      "type": "kernel",
+      "key": " ",
+      "keyColor": "34"
+    },
+    {
+      "type": "packages",
+{{ if eq .chezmoi.osRelease.id "arch" }}
+      "format": "{} (pacman)",
+{{ else if eq .chezmoi.osRelease.id "endeavouros" }}
+      "format": "{} (pacman)",
+{{ else if eq .chezmoi.osRelease.id "fedora" }}
+      "format": "{} (dnf)",
+{{ else }}
+      "format": "{} (choco)",
+{{ end }}
+      "key": " ",
+      "keyColor": "34"
+    },
+    {
+      "type": "shell",
+      "key": " ",
+      "keyColor": "34"
+    },
+    {
+      "type": "terminal",
+      "key": " ",
+      "keyColor": "34"
+    },
+    {
+      "type": "wm",
+      "key": " ",
+      "keyColor": "34"
+    },
+    {
+      "type": "cursor",
+      "key": " ",
+      "keyColor": "34"
+    },
+    {
+      "type": "terminalfont",
+      "key": " ",
+      "keyColor": "34"
+    },
+    {
+      "type": "uptime",
+      "key": " ",
+      "keyColor": "34"
+    },
+    {
+      "type": "datetime",
+      "format": "{1}-{3}-{11}",
+      "key": " ",
+      "keyColor": "34"
+    },
+    // {
+    //   "type": "media",
+    //   "key": "󰝚 ",
+    //   "keyColor": "34"
+    // },
+    // {
+    //   "type": "player",
+    //   "key": " ",
+    //   "keyColor": "34"
+    // },
+    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m"
+    },
+    "break",
+    "break"
+  ]
+}
