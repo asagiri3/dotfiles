@@ -1,0 +1,81 @@
+exit
+$env.path
+sudo pacman -S nvim
+nvim .bashrc
+ls
+ls -a
+ls .local
+ls .local/bin
+sudo pacman -S fastfetch
+6AB0-07BC
+curl -s https://ohmyposh.dev/install.sh | bash -s
+$env.path
+bash -c "$PATH"
+bash -c "echo $PATH"
+nvim .bashrc
+sudo pacman -S node
+nvim .bashrc
+sudo pacman -S npm
+nvim .bashrc
+$env.path
+nu --help
+nvim ~/.config/ghostty/
+$env.path
+fuck
+$env
+sudo shutdown now
+vmware --help
+sudo touch /etc/systemd/system/vmware-shared.service
+nvim /etc/systemd/system/vmware-shared.service
+sudo nvim /etc/systemd/system/vmware-shared.service
+sudoedit
+echo "[Unit]<\n>Description=Load VMware shared folders<\n>Requires=vmware-vmblock-fuse.service<\n>After=vmware-vmblock-fuse.service<\n>ConditionPathExists=.host:/<shared_folder><\n>ConditionVirtualization=vmware<\n><\n>[Service]<\n>Type=oneshot<\n>RemainAfterExit=yes<\n>ExecStart=/usr/bin/vmhgfs-fuse -o allow_other -o auto_unmount .host:/<shared_folder> <shared folders root directory><\n><\n>[Install]<\n>WantedBy=multi-user.target" > /etc/systemd/system/vmware-shared.service
+echo "[Unit]<\n>Description=Load VMware shared folders<\n>Requires=vmware-vmblock-fuse.service<\n>After=vmware-vmblock-fuse.service<\n>ConditionPathExists=.host:/<shared_folder><\n>ConditionVirtualization=vmware<\n><\n>[Service]<\n>Type=oneshot<\n>RemainAfterExit=yes<\n>ExecStart=/usr/bin/vmhgfs-fuse -o allow_other -o auto_unmount .host:/<shared_folder> <shared folders root directory><\n><\n>[Install]<\n>WantedBy=multi-user.target"| sudo save /etc/systemd/system/vmware-shared.service
+echo "[Unit]<\n>Description=Load VMware shared folders<\n>Requires=vmware-vmblock-fuse.service<\n>After=vmware-vmblock-fuse.service<\n>ConditionPathExists=.host:/<shared_folder><\n>ConditionVirtualization=vmware<\n><\n>[Service]<\n>Type=oneshot<\n>RemainAfterExit=yes<\n>ExecStart=/usr/bin/vmhgfs-fuse -o allow_other -o auto_unmount .host:/<shared_folder> <shared folders root directory><\n><\n>[Install]<\n>WantedBy=multi-user.target"| sudo tee -a /etc/systemd/system/vmware-shared.service
+nvim /etc/systemd/system/vmware-shared.service
+sudo mkdir /mnt/Share
+echo "[Unit]<\n>Description=Load VMware shared folders<\n>Requires=vmware-vmblock-fuse.service<\n>After=vmware-vmblock-fuse.service<\n>ConditionPathExists=.host:/<shared_folder><\n>ConditionVirtualization=vmware<\n><\n>[Service]<\n>Type=oneshot<\n>RemainAfterExit=yes<\n>ExecStart=/usr/bin/vmhgfs-fuse -o allow_other -o auto_unmount .host:/Share /mnt/Share<\n><\n>[Install]<\n>WantedBy=multi-user.target"| sudo tee /etc/systemd/system/vmware-shared.service
+systemctl enable vmware-share.service
+ls /etc/systemd/
+ls /etc/systemd/system
+systemctl enable vmware-shared.service
+ls /mnt/Share/
+systemctl start vmware-shared.service
+ls /mnt/Share
+ls `/mnt/Share/New folder/`
+ls `/mnt/Share/New folder/test`
+ls /mnt/Share
+cp -p /mnt/Share/Nushell/ ~/.config/nushell/test/
+cp /mnt/Share/Nushell/ ~/.config/nushell/config
+cp /mnt/Share/Nushell/* ~/.config/nushell/config
+cp -p /mnt/Share/Nushell/* ~/.config/nushell/config
+mkdir ~/.config/nushell/config
+cp -p /mnt/Share/Nushell/* ~/.config/nushell/config
+cd .config/nushell/
+ls
+ls config
+nvim .
+rm -rf config.nu env.nu
+cp config/* .
+ls
+nvim .
+ls
+l
+ls
+oh-my-posh
+oh-my-posh init nu --config ~/.config/oh-my-posh/zen.toml
+ls
+rm -rf config
+ls
+fastfetch
+clear
+$env.path
+cd .local
+ls
+cd share
+ls
+cd nushell/
+ls
+cd vendor/
+ls
+nvim .
