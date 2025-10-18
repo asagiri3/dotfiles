@@ -1,38 +1,44 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-{{ if eq .chezmoi.osRelease.id "fedora" }}
   "logo": {
-    "source": "~/Miscellaneous/Pictures/maomao_square_strans.png",
-    "type": "kitty",
-    "height": 11,
+    // "source": "D:/logo/Chue-stran-square-better.png", // for wezterm
+    // "type": "iterm",
+    // "width": 22,
+    // "height": 10,
+    // "padding": {
+    //   "top": 6,
+    //   "left": 3
+    // }
+
+    // "source": "D:/logo/Chue-stran-square-better.sixel",
+    // "type": "raw", // for support transparent background in sixel
+    // "width": 21,
+    // "height": 10,
+    // "padding": {
+    //   "top": 7,
+    //   "left": 3
+    // }
+
+    // "source": "D:/logo/frieren-rain.jpg",
+    // "source": "D:/logo/frieren-rain.sixel", // just for backup
+    // "source": "D:/logo/Sagiri3.jpg",
+    // "source": "D:/logo/Yamada Asaemon Sagiri1.jpg",
+    // "source": "D:/logo/⌗ Sagiri icon (1).jpg",
+    // "source": "/home/maachue/Miscellaneous/logo/⌗ Sagiri icon (1).jpg",
+    // "type": "kitty",
+    // "width": 21,
+    // "height": 10,
+    // "padding": {
+    //   "top": 7,
+    //   "left": 3
+    // },
+
+    "type": "small", // windows silly small logo
     "padding": {
-      "top": 5,
+      "top": 7,
       "left": 3
     }
   },
-{{ else if eq .chezmoi.osRelease.id "arch" }}
-{{ else if eq .chezmoi.osRelease.id "endeavouros" }}
-  "logo": {
-    "source": "~/Miscellaneous/Pictures/maachue/Chue-stran-square-better.png",
-    "type": "kitty",
-    "height": 10,
-    "padding": {
-      "top": 6,
-      "left": 3
-    }
-  },
-{{ else }}
-  "logo": {
-    "source": "D:/maachue/Chue-stran-square-better.png",
-    "type": "kitty-direct",
-    "width": 22,
-    "height": 10,
-    "padding": {
-        "top": 8,
-        "left": 3
-      }
-  },
-{{ end }}
   "display": {
     "separator": " "
   },
@@ -116,16 +122,6 @@
       "key": " ",
       "keyColor": "34"
     },
-    // {
-    //   "type": "media",
-    //   "key": "󰝚 ",
-    //   "keyColor": "34"
-    // },
-    // {
-    //   "type": "player",
-    //   "key": " ",
-    //   "keyColor": "34"
-    // },
     "break",
     {
       "type": "custom",
