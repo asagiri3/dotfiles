@@ -18,5 +18,5 @@
 # them for future reference.
 
 # Working directory
-$env.WorkingDir = '~/Code/tty-clock++'
+$env.CppDir = '~/Code/C++/'
 $env.RustDir = '~/Code/rust'
