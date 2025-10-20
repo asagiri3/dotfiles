@@ -1,6 +1,7 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
 switch-to-activity-662ff51a-7180-4e9d-a156-5600510c209a=none,none,Switch to activity "Default"
+switch-to-activity-8a0ed420-b9c6-416b-94c3-d9dadc637131=none,none,Switch to activity "Default"
 switch-to-activity-9a41acaf-5109-4f9b-af12-486a7fda1839=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
@@ -39,7 +40,7 @@ Activate Window Demanding Attention=Meta+Ctrl+A,Meta+Ctrl+A,Activate Window Dema
 Cycle Overview=none,none,Cycle through Overview and Grid View
 Cycle Overview Opposite=none,none,Cycle through Grid View and Overview
 Decrease Opacity=none,,Decrease Opacity of Active Window by 5%
-Edit Tiles=Meta+T,Meta+T,Toggle Tiles Editor
+Edit Tiles=none,Meta+T,Toggle Tiles Editor
 Expose=Ctrl+F9,Ctrl+F9,Toggle Present Windows (Current desktop)
 ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
 ExposeClass=Ctrl+F7,Ctrl+F7,Toggle Present Windows (Window class)
@@ -351,7 +352,10 @@ switch to previous activity=none,,Switch to Previous Activity
 toggle do not disturb=none,,Toggle do not disturb
 
 [services][com.mitchellh.ghostty.desktop]
-_launch=none
+_launch=Meta+T
+
+[services][firefox.desktop]
+_launch=Meta+F
 
 [services][org.kde.spectacle.desktop]
 _launch=Print

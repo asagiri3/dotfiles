@@ -3,7 +3,10 @@ return {
     "catppuccin/nvim",
     opts = {
       flavour = "mocha",
-      transparent_background = false,
+      transparent_background = true,
+      float = {
+        transparent = true,
+      },
     },
   },
   {

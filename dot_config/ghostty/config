@@ -3,7 +3,9 @@ font-size = 11
 
 config-file = ./config-dankcolors
 
-cursor-style = bar
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
 
 command = "nu -l"
 

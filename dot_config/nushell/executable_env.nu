@@ -20,3 +20,5 @@
 # Working directory
 $env.CppDir = '~/Code/C++/'
 $env.RustDir = '~/Code/rust'
+$env.DOTFILES = '~/.local/share/chezmoi/'
+$env.NUSCRIPTS = '~/nu_scripts'

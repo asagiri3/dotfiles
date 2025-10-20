@@ -74,6 +74,11 @@ spawn-at-startup "qs" "-c" "dms"
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
 
+cursor {
+  xcursor-theme "breeze_cursors"
+  xcursor-size 24
+}
+
 animations {
   window-open {
     duration-ms 150
@@ -93,6 +98,7 @@ window-rule {
 
 window-rule {
   match app-id=r#"^org\.wezfurlong\.wezterm$"#
+  match app-id=r#"^spotify$"#
   default-column-width {}
 }
 
