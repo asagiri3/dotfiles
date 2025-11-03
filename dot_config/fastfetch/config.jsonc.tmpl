@@ -74,6 +74,8 @@
 {{ if eq .chezmoi.osRelease.id "fedora" }}
       "key": " ",
 {{ else if eq .chezmoi.osRelease.id "arch" }}
+{{ else if eq .chezmoi.osRelease.id "endeavouros" }}
+{{ else if eq .chezmoi.osRelease.id "cachyos" }}
       "key": " ",
 {{ else }}
       "key": " ",
@@ -88,7 +90,7 @@
     {
       "type": "packages",
 {{ if eq .chezmoi.osRelease.id "arch" }}
-      "format": "{} (pacman)",
+{{ else if eq .chezmoi.osRelease.id "cachyos" }}
 {{ else if eq .chezmoi.osRelease.id "endeavouros" }}
       "format": "{} (pacman)",
 {{ else if eq .chezmoi.osRelease.id "fedora" }}
