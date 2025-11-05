@@ -1,0 +1,12 @@
+[general]
+color = "magenta"
+bold = true
+
+[position]
+horizontal = "center"
+vertical = "center"
+
+[date]
+fmt = "%a, %h %d %Y"
+use_12h = true
+hide_seconds = true
