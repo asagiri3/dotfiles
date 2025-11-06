@@ -198,7 +198,7 @@ binds {
 
        focus-ring {
            width 3
-           // active-color "#00ac89"
+           active-color "#8fcff3"
            // inactive-color "#505050"
        }
 
@@ -284,7 +284,7 @@ cursor {
         XDG_SESSION_TYPE "wayland"
         XDG_CURRENT_DESKTOP "niri"
 
-        QT_QPA_PLATFORMTHEME "qt5ct"
+        QT_QPA_PLATFORMTHEME "qt6ct"
     }
 
     hotkey-overlay {
