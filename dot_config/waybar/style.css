@@ -1,126 +1,102 @@
-* {
-    font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-}
+@import url('./colors.css');
 
-window#waybar {
-    background-color: #0f1117;
-    font-size: 14px;
-    border-radius: 0px;
-    margin: 0px;
+* {
+    border: none;
+    border-radius: 0;
+
+    font-family: 'Rubik Medium', sans-serif;
+    font-size: 13px;
+
+    min-height: 0;
+    margin: 0;
     padding: 0;
 }
 
-/* Left-most: Arch icon */
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    border-radius: 10px;
+    background-color: @surface;
+    border: 2px solid transparent;
+    padding: 5px;
+    margin: 0px;
+}
+
+tooltip label {
+    color: @on_surface;
+}
+
+.modules-left {
+    margin:10px 0px 5px 10px;
+}
+.modules-center {
+    margin:10px 0px 5px 0px;
+}
+.modules-right {
+    margin: 10px 10px 5px 0px;
+}
+
+.modules-left, .modules-center, .modules-right {
+    padding: 5px;
+    border-radius:10px;
+    background: alpha(@background,.6);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
+}
+
 #custom-appmenu {
-  font-size: 4;
-  background-image: url('/usr/share/icons/cachyos.svg');
-  background-color: #1e222a;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding: 0px 12px;
-    
+    font-size: 4px;
+    background-image: url('/usr/share/icons/cachyos.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 0px 12px;
 }
 
-/* Right-most: Clock */
-#clock {
-    font-size: 14px;
-    background-color: #1e222a;
-    color: #c0c0c0;
-    border-radius: 0px;
-    padding: 0px 8px;
+#workspaces {
+    transition: all 1050ms ease-in-out;
 }
 
-/* Active window title */
-#window {
-    font-size: 14px;
-    font-weight: 800;
-    color: #e0e0e0;
-    border-radius: 0px;
-    padding: 4px 12px;
-    background-color: #1e222a;
-}
-
-/* Workspace container */
-#niri-workspaces {
-    background: #1e222a;
-    font-weight: bold;
-    border-radius: 0px;
-    font-size: 8px;
-    color: #e0e0e0;
-}
-
-/* Individual workspace buttons */
-#niri-workspaces button {
-    border-radius: 0px;
-    font-size: 8px;
-}
-
-#workspaces button.active {
-    border-radius: 0px;
-    color: #0f1117;
-    background: #00ac89;
+#workspaces button {
+    transition: all 300ms ease-in-out;
+    padding: 0 3px;
+    border-radius: 12px;
+    min-width: 15px;
+    color: transparent;
+    background-color: @surface_variant;
+    border: 2px solid transparent;
 }
 
 #workspaces button:hover {
-    border-radius: 0px;
-    background: #0d3531;
-    border-width: 0px;
+    background-color: @secondary;
+    min-width: 25px;
+    color: @on_secondary;
 }
 
-/* Power/exit button */
-#custom-exit {
-    background-color: #00ac89;
-    font-size: 14px;
-    font-weight: 800;
-    color: #0f1117;
-    padding: 0px 6px;
-    margin: 2px 2px 2px 0;
+#workspaces button.active {
+    min-width: 50px;
+    color: @on_primary;
+    background-color: @primary;
 }
 
-/* Tooltips */
-tooltip {
-    border-radius: 12px;
-    background-color: #0f1117;
-    color: #c0c0c0;
-    padding: 4px 8px;
+#workspaces button.active:hover {
+    min-width: 50px;
+    color: @on_primary_container;
+    background-color: @primary_container;
 }
 
-/* Taskbar */
-#taskbar {
-    background-color: #1e222a;
-    margin: 0px;
-    border-radius: 0px;
-    font-weight: normal;
+#workspaces button.empty:hover {
+    background-color: @outline;
+    color: @on_outline;
 }
 
-/* All system info modules */
-#backlight,
-#pulseaudio,
-#network,
-#bluetooth,
-#battery,
-#tray,
-#custom-updates,
-#custom-notification {
-    background-color: #1e222a;
-    font-size: 14px;
-    font-weight: 800;
-    color: #c0c0c0;
-    border-radius: 0px;
-    padding: 4px 10px;
+#clock, #network, #custom-power, #custom-notification {
+    padding: 0px 5px;
+    color: @on_background;
 }
 
-/* Battery critical warning */
-#battery.critical:not(.charging) {
-    background-color: #e65100;
-    color: #ffffff;
-    animation: blink 0.5s linear infinite alternate;
-}
-
-@keyframes blink {
-    to {
-        background-color: #0f1117;
-        color: #ffffff;
-    }
+#power-profiles-daemon {
+    padding: 0 5px;
+    color: @on_background;
 }

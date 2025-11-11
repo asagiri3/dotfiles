@@ -7,7 +7,9 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #end
 
 set -gx EDITOR nvim
-set -gx DOTFILES ~/.local/share/chezmoi/
+set -gx DOTFILES ~/.local/share/chezmoi
+set -gx NOTES ~/Notes
+set -gx DYNAMICS_THEME ~/.config/matugen
 
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")

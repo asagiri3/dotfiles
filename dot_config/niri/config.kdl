@@ -38,10 +38,15 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+T                          hotkey-overlay-title="Open Terminal: ghostty" { spawn-sh "ghostty"; }
-    ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "~/.config/rofi/launchers/type-2/launcher.sh"; }
-    MOD+F                               hotkey-overlay-title="Open Browser: firefox" { spawn-sh "firefox"; }
-    MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
+    MOD+T                               hotkey-overlay-title="Open Terminal: ghostty"           { spawn-sh "ghostty"; }
+    ALT+SPACE                           hotkey-overlay-title="Open App Launcher: rofi"          { spawn-sh "~/.config/rofi/launchers/type-4/launcher.sh"; }
+    MOD+F                               hotkey-overlay-title="Open Browser: firefox"            { spawn-sh "firefox"; }
+    MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock"            { spawn-sh "swaylock"; }
+    MOD+SHIFT+E                         hotkey-overlay-title="Open Editor: VSCodium"            { spawn-sh "codium"; }
+    MOD+CTRL+B                          hotkey-overlay-title="Open or Reload: waybar"           { spawn-sh "~/.config/waybar/waybar.sh"; }
+    MOD+SHIFT+T                         hotkey-overlay-title="Open Application: Obsidian"       { spawn-sh "md.obsidian.Obsidian"; }
+    MOD+CTRL+Q                          hotkey-overlay-title="Open Application: Color Picker"   { spawn-sh "wl-color-picker"; }
+    MOD+CTRL+L                         hotkey-overlay-title="Open Menu: wlogout"               { spawn-sh "wlogout"; }
 
     // Please choose your own file manager
     MOD+E                             hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
@@ -177,7 +182,8 @@ binds {
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
     spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
     // spawn-sh-at-startup "swww img /usr/share/wallpapers/cachyos-wallpapers/Skyscraper.png" // Set wallpaper
-    spawn-sh-at-startup "waybar" // Launch waybar
+    spawn-sh-at-startup "~/.config/waybar/waybar.sh" // Launch waybar
+    spawn-sh-at-startup "swaync" // Notifications daemon
 
     prefer-no-csd // Disable program decorations
     screenshot-path null // Disable screenshot saving
@@ -185,32 +191,33 @@ binds {
 // ────────────── Layout Settings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 
-   layout {
-       gaps 16 // Gap between windows
-       center-focused-column "never" // Don’t auto-center focused column
-       background-color "transparent"
+  // include "~/.config/niri/niri-color.kdl"
 
-       preset-column-widths {
-           proportion 0.33333
-           proportion 0.5
-           proportion 0.66667
-       }
+  layout {
+      gaps 16 // Gap between windows
+      center-focused-column "never" // Don’t auto-center focused column
+      background-color "transparent"
 
-       focus-ring {
-           width 3
-           active-color "#8fcff3"
-           // inactive-color "#505050"
-       }
+      preset-column-widths {
+          proportion 0.33333
+          proportion 0.5
+          proportion 0.66667
+      }
 
-       shadow {
-           softness 30
-           spread 5
-           offset x=0 y=5
-           // color "#0007"
-       }
+      focus-ring {
+          width 3
+          active-color "#e2c46d"
+      }
 
-       struts {}
-   }
+      shadow {
+          softness 30
+          spread 5
+          offset x=0 y=5
+          // color "#0007"
+      }
+
+      struts {}
+  }
 
 
   layer-rule {
@@ -259,6 +266,19 @@ binds {
     window-rule {
         match app-id=r#"firefox$"# title="^Picture-in-Picture$"
         open-floating true // Always float Firefox PiP windows
+    }
+
+    window-rule {
+      match app-id=r#"^org\.wezfurlong\.wezterm$"#
+      default-column-width {} // Work around for wezterm
+    }
+
+    window-rule {
+      match app-id="obsidian"
+      match app-id="codium"
+      match app-id="mpv"
+      match app-id="calibre"
+      open-maximized true
     }
 
     window-rule {

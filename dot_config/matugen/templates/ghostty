@@ -5,19 +5,52 @@ cursor-text = {{colors.on_surface_variant.default.hex}}
 selection-background = {{colors.secondary_fixed_dim.default.hex}}
 selection-foreground = {{colors.on_secondary.default.hex}}
 
-palette = 0={{ colors.surface.default.hex }}
+# palette = 0={{ colors.surface.default.hex }}
+# palette = 1={{ colors.error.default.hex }}
+# palette = 2={{ colors.primary.default.hex }}
+# palette = 3={{ colors.tertiary.default.hex }}
+# palette = 4={{ colors.on_primary_container.default.hex }}
+# palette = 5={{ colors.on_secondary_container.default.hex }}
+# palette = 6={{ colors.secondary.default.hex }}
+# palette = 7={{ colors.on_surface.default.hex }}
+# palette = 8={{ colors.surface_bright.default.hex }}
+# palette = 9={{ colors.error.default.hex }}
+# palette = 10={{ colors.primary.default.hex }}
+# palette = 11={{ colors.tertiary.default.hex }}
+# palette = 12={{ colors.on_primary_container.default.hex }}
+# palette = 13={{ colors.on_secondary_container.default.hex }}
+# palette = 14={{ colors.secondary.default.hex }}
+# palette = 15={{ colors.on_surface.default.hex }}
+
+# Black
+palette = 8={{ colors.on_surface.default.hex }}
+palette = 0=#4c4c4c
+
+# Red
 palette = 1={{ colors.error.default.hex }}
-palette = 2={{ colors.primary.default.hex }}
-palette = 3={{ colors.tertiary.default.hex }}
-palette = 4={{ colors.on_primary_container.default.hex }}
-palette = 5={{ colors.on_secondary_container.default.hex }}
-palette = 6={{ colors.secondary.default.hex }}
-palette = 7={{ colors.on_surface.default.hex }}
-palette = 8={{ colors.surface_bright.default.hex }}
-palette = 9={{ colors.error.default.hex }}
-palette = 10={{ colors.primary.default.hex }}
-palette = 11={{ colors.tertiary.default.hex }}
-palette = 12={{ colors.on_primary_container.default.hex }}
-palette = 13={{ colors.on_secondary_container.default.hex }}
-palette = 14={{ colors.secondary.default.hex }}
-palette = 15={{ colors.on_surface.default.hex }}
+palette = 9=#c49ea0
+
+# Green
+palette = 2={{ colors.on_surface.default.hex }}
+palette = 10=#9ec49f
+
+# Yellow
+palette = 3=#aca98a
+palette = 11=#c4c19e
+
+# Blue
+# /* color4  #8f8aac */
+palette = 4={{ colors.primary.default.hex }}
+palette = 12=#a39ec4
+
+# Magenta
+palette = 5={{ colors.error.default.hex }}
+palette = 13=#c49ec4
+
+# Cyan
+palette = 6={{ colors.on_surface.default.hex }}
+palette = 14=#9ec3c4
+
+# White
+palette = 15=#e7e7e7
+palette = 7=#f0f0f0

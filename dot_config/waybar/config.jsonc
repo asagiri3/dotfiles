@@ -1,0 +1,25 @@
+{
+  "layer": "top",
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "spacing": 0,
+  "include": [
+    "./modules.jsonc"
+  ],
+  "modules-left": [
+    "custom/appmenu",
+    "niri/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "power-profiles-daemon",
+    "network",
+    // "pulseaudio",
+    "custom/power",
+    "custom/notification"
+  ]
+}
