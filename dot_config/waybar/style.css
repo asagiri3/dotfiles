@@ -17,15 +17,19 @@ window#waybar {
 }
 
 tooltip {
-    border-radius: 10px;
-    background-color: @surface;
-    border: 2px solid transparent;
-    padding: 5px;
-    margin: 0px;
+    background: alpha(@surface_container_high, 0.9);
+    border-radius: 12px;
+    border: 1px solid alpha(@outline, 0.4);
+    padding: 6px 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.15s ease-in-out;
 }
 
 tooltip label {
     color: @on_surface;
+    font-size: 12px;
+    font-weight: 500;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
 
 .modules-left {
@@ -91,7 +95,7 @@ tooltip label {
     color: @on_outline;
 }
 
-#clock, #network, #custom-power, #custom-notification {
+#clock, #network, #custom-power, #custom-notification, #battery, #tray {
     padding: 0px 5px;
     color: @on_background;
 }

@@ -16,10 +16,12 @@
     "clock"
   ],
   "modules-right": [
+    "tray",
     "power-profiles-daemon",
     "network",
     // "pulseaudio",
     "custom/power",
+    "battery",
     "custom/notification"
   ]
 }

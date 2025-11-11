@@ -19,12 +19,14 @@
   "network": {
     "interface": "ens33",
     "format": "{ifname}",
-    "format-wifi": " ",
+    // "format-wifi": " ",
+    "format-wifi": "{icon}",
+    "format-icons": ["󰤩", "󰤟", "󰤢", "󰤢", "󰤨"],
     "format-ethernet": "󰈀",
     "format-disconnected": "", //An empty format will hide the module.
     "tooltip-format": "{ifname} via {gwaddr} 󰈀 ",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
-    "tooltip-format-ethernet": "{ifname}  ",
+    "tooltip-format-ethernet": "{ifname} 🖧 ",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50
   },
@@ -56,22 +58,26 @@
   },
   // BATTERY
   "battery": {
-    "bat": "BAT2",
-    "interval": 60,
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
-    "max-length": 25
+      "interval":30,
+      "states": {
+          "good": 95,
+          "warning": 30,
+          "critical": 20
+      },
+      "format": "{capacity}% {icon}",
+      "format-charging": "{capacity}% 󰂄",
+      "format-plugged": "{capacity}% 󰂄 ",
+      "format-alt": "{time} {icon}",
+      "format-icons": [
+          "󰁻",
+          "󰁼",
+          "󰁾",
+          "󰂀",
+          "󰂂",
+          "󰁹"
+      ],
   },
+  // SWAYNC
   "custom/notification": {
     "tooltip": true,
     "format": "{icon}",
@@ -107,7 +113,11 @@
   // POWER BUTTON
   "custom/power": {
     "format": "󰤆",
-    // "on-click": "~/.config/waybar/script/power.sh",
     "on-click": "wlogout"
+  },
+  // TRAY
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10
   }
 }
