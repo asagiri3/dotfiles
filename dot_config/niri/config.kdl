@@ -39,14 +39,16 @@ binds {
 
     // ─── Applications ───
     MOD+T                               hotkey-overlay-title="Open Terminal: ghostty"           { spawn-sh "ghostty"; }
-    ALT+SPACE                           hotkey-overlay-title="Open App Launcher: rofi"          { spawn-sh "~/.config/rofi/launchers/type-4/launcher.sh"; }
+    // ALT+SPACE                           hotkey-overlay-title="Open App Launcher: rofi"          { spawn-sh "~/.config/rofi/launchers/type-4/launcher.sh"; }
+    ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi"          { spawn-sh "wofi"; }
+    MOD+V                               hotkey-overlay-title="Open clipvault Manager via: wofi" { spawn-sh "~/.config/wofi/scripts/clipvault.sh"; }
     MOD+F                               hotkey-overlay-title="Open Browser: firefox"            { spawn-sh "firefox"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock"            { spawn-sh "swaylock"; }
     MOD+SHIFT+E                         hotkey-overlay-title="Open Editor: VSCodium"            { spawn-sh "codium"; }
     MOD+CTRL+B                          hotkey-overlay-title="Open or Reload: waybar"           { spawn-sh "~/.config/waybar/waybar.sh"; }
     MOD+SHIFT+T                         hotkey-overlay-title="Open Application: Obsidian"       { spawn-sh "md.obsidian.Obsidian"; }
     MOD+CTRL+Q                          hotkey-overlay-title="Open Application: Color Picker"   { spawn-sh "wl-color-picker"; }
-    MOD+CTRL+L                         hotkey-overlay-title="Open Menu: wlogout"               { spawn-sh "wlogout"; }
+    MOD+CTRL+L                          hotkey-overlay-title="Open Menu: wlogout"               { spawn-sh "wlogout"; }
 
     // Please choose your own file manager
     MOD+E                             hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
@@ -71,10 +73,10 @@ binds {
     MOD+W                               { focus-window-up; }
     MOD+S                               { focus-window-down; }
 
-    MOD+SHIFT+A                          { move-column-left; }
-    MOD+SHIFT+D                          { move-column-right; }
-    MOD+SHIFT+W                          { move-window-up; }
-    MOD+SHIFT+S                          { move-window-down; }
+    MOD+SHIFT+A                         { move-column-left; }
+    MOD+SHIFT+D                         { move-column-right; }
+    MOD+SHIFT+W                         { move-window-up; }
+    MOD+SHIFT+S                         { move-window-down; }
 
     MOD+HOME                            { focus-column-first; }
     MOD+END                             { focus-column-last; }
@@ -93,8 +95,8 @@ binds {
 
     MOD+SHIFT+H                         { consume-or-expel-window-left; }
     MOD+SHIFT+L                         { consume-or-expel-window-right; }
-    MOD+CTRl+A                         { consume-or-expel-window-left; }
-    MOD+CTRL+D                         { consume-or-expel-window-right; }
+    MOD+CTRl+A                          { consume-or-expel-window-left; }
+    MOD+CTRL+D                          { consume-or-expel-window-right; }
 
     // ─── Workspace Switching ───
     MOD+WHEELSCROLLDOWN                 cooldown-ms=150 { focus-workspace-down; }
@@ -140,7 +142,7 @@ binds {
     MOD+CTRL+8                          { move-column-to-workspace 8; }
     MOD+CTRL+9                          { move-column-to-workspace 9; }
 
-    MOD+TAB                         repeat=false { toggle-overview; }
+    MOD+TAB                             repeat=false { toggle-overview; }
 
     // ─── Layout Controls ───
     MOD+CTRL+F                          { expand-column-to-available-width; }
@@ -172,8 +174,8 @@ binds {
     CTRL+ALT+DELETE                     { quit; } // Also quits Niri
     MOD+DELETE                          { quit; }
     MOD+SHIFT+P                         { power-off-monitors; } // Turn off screens (useful for OLED or privacy)
-    MOD+O                               repeat=false { toggle-overview; }
-    MOD+ALT+TAB                             { focus-workspace-previous; }
+    MOD+O                  repeat=false { toggle-overview; }
+    MOD+ALT+TAB                         { focus-workspace-previous; }
 }
 
 // ────────────── Startup Applications ──────────────
@@ -184,6 +186,7 @@ binds {
     // spawn-sh-at-startup "swww img /usr/share/wallpapers/cachyos-wallpapers/Skyscraper.png" // Set wallpaper
     spawn-sh-at-startup "~/.config/waybar/waybar.sh" // Launch waybar
     spawn-sh-at-startup "swaync" // Notifications daemon
+    spawn-sh-at-startup "wl-paste --watch clipvault store"
 
     prefer-no-csd // Disable program decorations
     screenshot-path null // Disable screenshot saving
@@ -194,7 +197,7 @@ binds {
   // include "~/.config/niri/niri-color.kdl"
 
   layout {
-      gaps 16 // Gap between windows
+      gaps 10 // 16 // Gap between windows
       center-focused-column "never" // Don’t auto-center focused column
       background-color "transparent"
 
@@ -279,6 +282,11 @@ binds {
       match app-id="mpv"
       match app-id="calibre"
       open-maximized true
+    }
+
+    window-rule {
+      match app-id="zen"
+      draw-border-with-background false
     }
 
     window-rule {

@@ -6,7 +6,7 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #    # smth smth
 #end
 
-set -gx EDITOR codium
+set -gx EDITOR nvim
 set -gx DOTFILES ~/.local/share/chezmoi
 set -gx NOTES ~/Notes
 set -gx DYNAMICS_THEME ~/.config/matugen

@@ -37,7 +37,9 @@ alias iea="paru -Q"
 
 alias ma="matugen"
 alias mai="matugen image"
-alias maic="matugen image --show-colors"
+alias mais="matugen image --show-colors"
+alias maig="matugen --config ~/.config/matugen/config-gtk.toml image"
+alias maigs="matugen --config ~/.config/matugen/config-gtk.toml image --show-colors"
 
 alias change="$EDITOR ~/.config/fish/"
 alias niri-ch="$EDITOR ~/.config/niri/"

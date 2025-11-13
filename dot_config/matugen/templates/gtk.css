@@ -59,7 +59,7 @@
  https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/src/stylesheet/_colors.scss
 */
 
-/* :root {
+:root {
     --accent-blue: #3584e4;
     --accent-teal: #2190a4;
     --accent-green: #3a944a;
@@ -126,4 +126,4 @@
 
     --shade-color: @shade_color;
     --scrollbar-outline-color: @scrollbar_outline_color;
-} */
+}

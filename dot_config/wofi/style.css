@@ -1,46 +1,102 @@
+@import url('/home/maachue/.config/waybar/colors.css');
+@keyframes fadeIn {
+    0% {
+    }
+    100% {
+    }
+}
+
 * {
-    font-family: "Hack", monospace;
+    all:unset;
+    font-family: 'Rubik Medium', monospace;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    text-shadow:none;
+    background-color:transparent;
 }
 
 window {
-    background-color: #3B4252;
+    all:unset;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: alpha(@background,.85);
 }
-
-#input {
-    margin: 5px;
-    border-radius: 0px;
-    border: none;
-    background-color: #3B4252;
-    color: white;
-}
-
 #inner-box {
-    background-color: #383C4A;
-}
-
-#outer-box {
     margin: 2px;
-    padding: 10px;
-    background-color: #383C4A;
+    padding: 5px;
+    border-radius: 20px;
 }
-
+#outer-box {
+    border: none;
+}
 #scroll {
-    margin: 5px;
+    margin: 0px;
+    padding: 30px;
+    border: none;
+}
+#input {
+    all:unset;
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:20px;
+    padding: 20px;
+    border: none;
+    outline: none;
+    color: @on_background;
+    box-shadow: 1px 1px 5px rgba(0,0,0, .5);
+    border-radius:10px;
+    background-color: alpha(@background,.2);
+}
+#input image {
+    border: none;
+    color: @error;
+    padding-right:5px;
+}
+#input * {
+    border: none;
+    outline: none;
 }
 
+#input:focus {
+    outline: none;
+    border: none;
+    border-radius:10px;
+}
 #text {
-    padding: 4px;
-    color: white;
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    color: @on_surface;
+    outline: none;
 }
-
-#entry:nth-child(even){
-    background-color: #404552;
+#text {
+    margin: 5px;
+    border: none;
+    color: @on_surface;
+    outline: none;
 }
+#entry {
+    border: none;
+    margin: 5px;
+    padding: 10px;
+}
+#entry arrow {
+    border: none;
+    color: @primary;
 
+}
 #entry:selected {
-    background-color: #4C566A;
+    box-shadow: 1px 1px 5px rgba(255,255,255, .03);
+    border: none;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: alpha(@surface, 0.75);
+    transition: all 450ms ease;
 }
-
-#text:selected {
-    background: transparent;
+#entry:selected #text {
+    color: @primary;
+}
+#entry:drop(active) {
+    background-color: @error;
 }
