@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+
+# Paths
+GTK_FILE=(
+    "$HOME/.config/gtk-3.0/gtk.css"
+    "$HOME/.config/gtk-4.0/gtk.css"
+    "$HOME/.config/gtk-4.0/gtk-dark.css"
+)
+MATUGEN_GTK="$HOME/.config/matugen/config-gtk.toml"
+
+# Help message
+phelp() {
+    cat <<EOF
+Usage: themesec [-h | -g | -m] [args] [-d]
+Available flags:
+  -h, --help       Show this help message
+  -d               Delete existing GTK CSS files
+  -g               Run matugen with GTK template
+  -m               Run matugen without GTK template
+
+NOTE: args requires the path to an image.
+EOF
+}
+
+# Delete GTK CSS
+del_gtk() {
+    for file in "${GTK_FILE[@]}"; do
+        if [[ -f "$file" ]]; then
+            echo "Removing: $file"
+            rm -f "$file"
+        fi
+    done
+}
+
+# matugen with gtk template
+matugen_gtk() {
+    img="$1"
+    if [[ ! -f "$img" ]]; then
+        echo "Image not found: $img" >&2
+        exit 1
+    fi
+
+    matugen image -c "$MATUGEN_GTK" "$img"
+}
+
+# matugen without gtk template
+matugen_non() {
+    img="$1"
+    if [[ ! -f "$img" ]]; then
+        echo "Image not found: $img" >&2
+        exit 1
+    fi
+
+    matugen image "$img"
+}
+
+# --- Parse args ----
+if [[ $# -eq 0 ]]; then
+    phelp
+    exit 0
+fi
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+    -h | --help)
+        phelp
+        exit 0
+        ;;
+    -d)
+        del_gtk
+        ;;
+    -g)
+        mode="gtk"
+        ;;
+    -m)
+        mode="non"
+        ;;
+    *)
+        img="$1"
+        ;;
+    esac
+    shift
+done
+
+# --- Execute ----
+case "$mode" in
+gtk) matugen_gtk "$img" ;;
+non) matugen_non "$img" ;;
+*)
+    echo "No mode selected (-g or -m)" >&2
+    exit 1
+    ;;
+esac

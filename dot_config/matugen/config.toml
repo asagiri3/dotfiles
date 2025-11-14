@@ -21,3 +21,11 @@ output_path = '~/.config/niri/niri-color.kdl'
 input_path = './templates/kitty.conf'
 output_path = '~/.config/kitty/kitty-colors.conf'
 post_hook = 'pkill -SIGUSR1 kitty'
+
+[templates.rofi]
+input_path = './templates/rofi.rasi'
+output_path = '~/.config/rofi/colors.rasi'
+
+[templates.wezterm]
+input_path = './templates/wezterm.lua'
+output_path = '~/.config/wezterm/colors.lua'

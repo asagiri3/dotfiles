@@ -19,8 +19,8 @@ config.font = wezterm.font_with_fallback({
 })
 
 -- Colors
-local color = require("custom_theme")
-
+-- local color = require("custom_theme")
+local color = require("colors")
 config.colors = color
 
 -- Appearancex
@@ -59,7 +59,8 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "C:\\Program Files\\PowerShell\\7\\pwsh.exe" }
 elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
 	-- config.default_prog = { "/usr/bin/bash", "-l" }
-	config.default_prog = { "/usr/bin/nu", "-l" }
+	-- config.default_prog = { "/usr/bin/nu", "-l" }
+	config.default_prog = { "/usr/bin/fish", "-l" }
 end
 
 -- Miscellaneous settings

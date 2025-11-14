@@ -17,7 +17,7 @@
     },
     // NETWORK
     "network": {
-        "interface": "ens33",
+        "interface": "ens192",
         "format": "{ifname}",
         // "format-wifi": " ",
         "format-wifi": "{icon}",

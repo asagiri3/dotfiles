@@ -1,6 +1,6 @@
 [config]
 allow_images=true
-width=500
+width=750
 show=drun
 prompt=Search
 term=kitty

@@ -22,6 +22,14 @@ input_path = './templates/kitty.conf'
 output_path = '~/.config/kitty/kitty-colors.conf'
 post_hook = 'pkill -SIGUSR1 kitty'
 
+[templates.rofi]
+input_path = './templates/rofi.rasi'
+output_path = '~/.config/rofi/colors.rasi'
+
+[templates.wezterm]
+input_path = './templates/wezterm.lua'
+output_path = '~/.config/wezterm/colors.lua'
+
 [templates.gtk3]
 input_path = './templates/gtk.css'
 output_path = '~/.config/gtk-3.0/gtk.css'
