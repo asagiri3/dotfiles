@@ -54,7 +54,7 @@ binds {
     MOD+CTRL+Q                          hotkey-overlay-title="Open Application: Color Picker"   { spawn-sh "wl-color-picker"; }
     MOD+CTRL+L                          hotkey-overlay-title="Open Menu: wlogout"               { spawn-sh "wlogout"; }
 
-    MOD+R                               hotkey-overlay-title="Open Wallapper Selection via: wofi" { spawn-sh "~/.config/wofi/scripts/a.sh -g"; }
+    MOD+R                               hotkey-overlay-title="Open Wallapper Selection via: wofi" { spawn-sh "walsec"; }
 
     // Please choose your own file manager
     MOD+E                               hotkey-overlay-title="File Manager: Dolphin" { spawn-sh "dolphin"; }

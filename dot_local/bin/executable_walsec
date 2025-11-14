@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+STATE="$HOME/.isgtk"
+
+if [[ ! -f "$STATE" ]]; then
+    echo "non" >"$STATE"
+fi
+
+WAL="$(~/.config/wofi/scripts/wallsec.sh)"
+
+echo "$WAL" >&2
+MODE="$(cat "$STATE")"
+echo "$MODE"
+
+case "$MODE" in
+gtk) themesec -d -g "$WAL" ;;
+non) themesec -m "$WAL" ;;
+*)
+    echo "Invalid state: $MODE" >&2
+    echo "non" >"$STATE"
+    exit 1
+    ;;
+esac
