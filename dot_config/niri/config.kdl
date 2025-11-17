@@ -39,22 +39,24 @@ binds {
 
     // ─── Applications ───
     MOD+T                               hotkey-overlay-title="Open Terminal: ghostty"           { spawn-sh "ghostty"; }
-    ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi"          { spawn-sh "wofi"; }
-    ALT+SHIFT+SPACE                                                                             { spawn-sh "rofi -show drun"; }
+    MOD+SHIFT+T                         hotkey-overlay-title="Open Terminal: wezterm"           { spawn-sh "wezterm"; }
+    // ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi"          { spawn-sh "wofi"; }
+    ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi"          { spawn-sh "~/.config/rofi/launcher.sh"; }
     // MOD+V                               hotkey-overlay-title="Open Clipboard Manager via: wofi" { spawn-sh "~/.config/wofi/scripts/cliphist.sh | wl-copy"; }
     // WARN: The binds below maybe not correct. Do not uncomment without check cliphist document
     // MOD+SHIFT+V                         hotkey-overlay-title="Open Clipboard Manager via: rofi" { spawn-sh "~/.config/rofi/scripts/cliphist.sh | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"; }
-    MOD+V                               hotkey-overlay-title="Open Clipboard Manager via: wofi" { spawn-sh "~/.config/wofi/scripts/clipvault.sh"; }
-    MOD+SHIFT+V                         hotkey-overlay-title="Open Clipboard Manager via: rofi" { spawn-sh "rofi -modi clipboard:~/.config/rofi/scripts/clipvault.sh -show clipboard -show-icons"; }
+
+    // MOD+V                               hotkey-overlay-title="Open Clipboard Manager via: wofi" { spawn-sh "~/.config/wofi/scripts/clipvault.sh"; }
+    MOD+V                               hotkey-overlay-title="Open Clipboard Manager via: rofi" { spawn-sh "~/.config/rofi/clipboard.sh"; }
     MOD+F                               hotkey-overlay-title="Open Browser: firefox"            { spawn-sh "firefox"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: hyprlock"            { spawn-sh "hyprlock"; }
     MOD+SHIFT+E                         hotkey-overlay-title="Open Editor: VSCodium"            { spawn-sh "codium"; }
     MOD+CTRL+B                          hotkey-overlay-title="Open or Reload: waybar"           { spawn-sh "~/.config/waybar/waybar.sh"; }
-    MOD+SHIFT+T                         hotkey-overlay-title="Open Application: Obsidian"       { spawn-sh "md.obsidian.Obsidian"; }
+    MOD+SHIFT+R                         hotkey-overlay-title="Open Application: Obsidian"       { spawn-sh "md.obsidian.Obsidian"; }
     MOD+CTRL+Q                          hotkey-overlay-title="Open Application: Color Picker"   { spawn-sh "wl-color-picker"; }
     MOD+CTRL+L                          hotkey-overlay-title="Open Menu: wlogout"               { spawn-sh "wlogout"; }
 
-    MOD+R                               hotkey-overlay-title="Open Wallapper Selection via: wofi" { spawn-sh "walsec"; }
+    MOD+R                               hotkey-overlay-title="Open Wallapper Selection"         { spawn-sh "walsec"; }
 
     // Please choose your own file manager
     MOD+E                               hotkey-overlay-title="File Manager: Dolphin" { spawn-sh "dolphin"; }

@@ -6,7 +6,13 @@ if [[ ! -f "$STATE" ]]; then
     echo "non" >"$STATE"
 fi
 
-WAL="$(~/.config/wofi/scripts/wallsec.sh)"
+isrofi="$(<$HOME/.config/dots/isrofi)"
+
+if [[ "$isrofi" == "true" ]]; then
+    WAL="$(~/.config/rofi/walselection.sh)"
+else
+    WAL="$(~/.config/wofi/scripts/wallsec.sh)"
+fi
 
 echo "$WAL" >&2
 MODE="$(cat "$STATE")"

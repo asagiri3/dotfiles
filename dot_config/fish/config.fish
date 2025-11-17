@@ -2,13 +2,14 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 
 # overwrite greeting
 # potentially disabling fastfetch
-#function fish_greeting
-#    # smth smth
-#end
+# function fish_greeting
+#     echo
+# end
 
 set -gx EDITOR nvim
 set -gx DOTFILES ~/.local/share/chezmoi
 set -gx NOTES ~/Notes
+set -gx WALLPAPER ~/.wallpaper
 set -gx DYNAMICS_THEME ~/.config/matugen
 
 function y

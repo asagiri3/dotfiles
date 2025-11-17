@@ -2,7 +2,7 @@
     // LOGO
     "custom/appmenu": {
         "format": "   ",
-        "on-click": "sleep 0.2;wofi",
+        "on-click": "sleep 0.2;~/.config/rofi/launcher.sh",
         "tooltip-format": "Open the application launcher"
     },
     // WORKSPACES

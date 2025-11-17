@@ -57,10 +57,10 @@ config.mouse_bindings = {
 -- pwsh for Windows
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "C:\\Program Files\\PowerShell\\7\\pwsh.exe" }
-elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
-	-- config.default_prog = { "/usr/bin/bash", "-l" }
-	-- config.default_prog = { "/usr/bin/nu", "-l" }
-	config.default_prog = { "/usr/bin/fish", "-l" }
+	-- elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+	-- 	-- config.default_prog = { "/usr/bin/bash", "-l" }
+	-- 	-- config.default_prog = { "/usr/bin/nu", "-l" }
+	-- 	config.default_prog = { "/usr/bin/fish", "-l" }
 end
 
 -- Miscellaneous settings
@@ -87,5 +87,8 @@ elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
 		end
 	end
 end
+
+config.adjust_window_size_when_changing_font_size = false
+config.initial_cols = 104
 
 return config

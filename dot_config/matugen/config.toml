@@ -24,7 +24,11 @@ post_hook = 'pkill -SIGUSR1 kitty'
 
 [templates.rofi]
 input_path = './templates/rofi.rasi'
-output_path = '~/.config/rofi/colors.rasi'
+output_path = '~/.config/rofi/options/color.rasi'
+
+[templates.rofiimg]
+input_path = './templates/rofi-sourceimg.rasi'
+output_path = '~/.config/rofi/options/wallpapers.rasi'
 
 [templates.wezterm]
 input_path = './templates/wezterm.lua'
