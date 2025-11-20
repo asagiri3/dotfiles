@@ -1,11 +1,9 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
--- local constants = require("constants_wez") -- useless, but still usefull
 
 -- Font settings
 config.font_size = 11.0
 config.line_height = 1.0
--- Love FiraCode 😮‍💨😮‍💨😮‍💨
 config.font = wezterm.font_with_fallback({
 	-- {
 	-- 	family = "FiraCode Nerd Font",
@@ -23,8 +21,8 @@ config.font = wezterm.font_with_fallback({
 local color = require("colors")
 config.colors = color
 
--- Appearancex
--- config.window_decorations = "RESIZE" -- tạm tắt
+-- Appearance
+-- config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
 	left = 5,
@@ -34,13 +32,6 @@ config.window_padding = {
 }
 
 -- Set Background
--- config.background = {
--- 	{
--- 		source = {
--- 			File = constants.bg,
--- 		},
--- 	},
--- }
 config.window_background_opacity = 0.8
 
 -- Drag
@@ -58,9 +49,9 @@ config.mouse_bindings = {
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "C:\\Program Files\\PowerShell\\7\\pwsh.exe" }
 	-- elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
-	-- 	-- config.default_prog = { "/usr/bin/bash", "-l" }
-	-- 	-- config.default_prog = { "/usr/bin/nu", "-l" }
-	-- 	config.default_prog = { "/usr/bin/fish", "-l" }
+	--    config.default_prog = { "/usr/bin/bash", "-l" }
+	--    config.default_prog = { "/usr/bin/nu", "-l" }
+	-- config.default_prog = { "/usr/bin/fish", "-l" }
 end
 
 -- Miscellaneous settings
@@ -77,7 +68,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 			break
 		end
 	end
--- For VMware Linux
+-- For Linux
 elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
 	for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
 		if gpu.backend == "Vulkan" then

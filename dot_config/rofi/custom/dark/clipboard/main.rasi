@@ -8,6 +8,9 @@
 
 @import "options/wallpapers.rasi"
 @import "options/color.rasi"
+@import "options/binds.rasi"
+
+@import "options/clip-binds.rasi"
 
 // CONFIGURATION
 configuration {
