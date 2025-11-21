@@ -155,7 +155,7 @@
         },
         "modules": [
             "custom/expand",
-            "pulseaudio",
+            // "pulseaudio",
             "bluetooth",
             "custom/end"
         ]
