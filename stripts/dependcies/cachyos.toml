@@ -1,0 +1,78 @@
+# ---- PKGS I NEED FOR CACHYOS ----
+# WARN: huh?
+
+[option]
+update-system = true
+noconfirm = true
+aur = "paru"
+
+[mainrepo]
+pkgs = [
+    # MAIN
+    "paru",
+    "fontconfig",
+    "unzip",
+    "flatpak",
+    "btop",
+    "imagemagick",
+    "ffmpeg",
+    "xwayland-statellite",
+    "unrar",
+    "unzip",
+    "npm",
+    "wtype",
+    "github-cli",
+    "fish",
+    "fastfetch",
+    "brightnessctl",
+    "power-profile-deamon",
+    # DEV
+    "rust",
+    "clang",
+    "llvm",
+    "clang",
+    "llvm",
+    "cmake",
+    "ninja",
+
+    "neovim",
+    "vscodium",
+    # FONTS
+    "ttf-fira-code",
+    "ttf-firacode-nerd",
+    "ttf-nerd-fonts-symbols",
+    "ttf-nerd-fonts-symbols-common",
+    "adobe-source-han-sans-jp-fonts",
+    "adobe-source-han-sans-kr-fonts",
+    "adobe-source-han-sans-cn-fonts",
+    # APPLICATIONS
+    "mpv",
+    "dolphin",
+    "qt6ct",
+    "qt5ct",
+    "nwg-look",
+    "kvantum",
+    "firefox",
+
+    "kitty",
+    "ghostty",
+    "wezterm",
+    "foot",
+    # TOOLS?
+    "btop",
+    "fastfetch",
+    "ripgrep",
+    "fzf",
+    "yazi",
+    # RICING?
+    "breeze-icons",
+    "rofi",
+    "wofi",
+    "swww",
+    "matugen",
+    "swaync",       ## REQUIRED FOR NOTIFICATIONS
+]
+remove = ["cachyos-niri-settings"]
+
+[aur]
+pkgs = ["calibre-bin", "clipvault"]
