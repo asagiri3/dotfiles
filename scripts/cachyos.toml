@@ -1,0 +1,111 @@
+# ---- CACHYOS RUNNER ----
+# ========================
+# > a distro out-of-the-box for performance and gaming ...
+
+# GLOBAL OPTIONS
+[options]
+no_confirm = false
+packagemanager = "pacman"
+
+[taskmanager]
+run = ["update_system", "remover", "installer", "flatpak", "aur"]
+
+[tasks.update_system]
+type = "update"
+flags = ["-Syu"]
+is_sudo = true
+
+[tasks.installer]
+type = "install"
+flags = ["-S"]
+pkgs = [
+    # MAIN
+    "paru",
+    "fontconfig",
+    "unzip",
+    "flatpak",
+    "btop",
+    "imagemagick",
+    "ffmpeg",
+    "xwayland-satellite",
+    "unrar",
+    "unzip",
+    "npm",
+    "wtype",
+    "github-cli",
+    "fish",
+    "fastfetch",
+    "brightnessctl",
+    "power-profiles-daemon",
+    # DEV
+    "rust",
+    "clang",
+    "llvm",
+    "clang",
+    "llvm",
+    "cmake",
+    "ninja",
+
+    "neovim",
+    "vscodium",
+    # FONTS
+    "ttf-fira-code",
+    "ttf-firacode-nerd",
+    "ttf-nerd-fonts-symbols",
+    "ttf-nerd-fonts-symbols-common",
+    "adobe-source-han-sans-jp-fonts",
+    "adobe-source-han-sans-kr-fonts",
+    "adobe-source-han-sans-cn-fonts",
+    # APPLICATIONS
+    "mpv",
+    "dolphin",
+    "qt6ct",
+    "qt5ct",
+    "nwg-look",
+    "kvantum",
+    "firefox",
+
+    "kitty",
+    "ghostty",
+    "wezterm",
+    "foot",
+    # TOOLS?
+    "btop",
+    "fastfetch",
+    "ripgrep",
+    "fzf",
+    "yazi",
+    # RICING?
+    "breeze-icons",
+    "rofi",
+    "wofi",
+    "swww",
+    "matugen",
+    "swaync",       ## REQUIRED FOR NOTIFICATIONS
+]
+is_sudo = true
+
+[tasks.remover]
+type = "remove"
+flags = ["-R"]
+pkgs = ["cachyos-niri-settings", "mako"]
+is_sudo = true
+
+[tasks.aur]
+type = "shell"
+program = "paru"
+flags = ["-S"]
+args = ["calibre-bin", "clipvault"]
+is_sudo = false
+
+[tasks.flatpak]
+type = "shell"
+program = "flatpak"
+flags = ["install"]
+args = [
+    "com.discordapp.Discord",
+    "com.github.tchx84.Flatseal",
+    "com.spotify.Client",
+    "md.obsidian.Obsidian",
+]
+is_sudo = false
