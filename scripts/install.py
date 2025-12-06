@@ -51,11 +51,11 @@ def main() -> None:
     distro = detect_distro()
     cfg = read_toml(distro)
 
-    if not cfg["option"]["idk"]:
-        print(
-            f"===> Sorry, not wrote the config yet.\nDistro doesn't have config: {distro}"
-        )
-        exit(1)
+    # if not cfg["option"]["idk"]:
+    #     print(
+    #         f"===> Sorry, not wrote the config yet.\nDistro doesn't have config: {distro}"
+    #     )
+    #     exit(1)
 
     manager = ""
     flags = {}

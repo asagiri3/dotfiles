@@ -17,7 +17,7 @@ input {
         natural-scroll // Enable natural (macOS-style) scrolling
     }
 
-    // focus-follows-mouse // Automatically focus windows under the mouse pointer
+    focus-follows-mouse // Automatically focus windows under the mouse pointer
     workspace-auto-back-and-forth // Enable workspace back & forth switching
 }
 
@@ -31,6 +31,17 @@ input {
     scale 1 // No scaling (use 2 for HiDPI)
 }
 
+output "HDMI-A-1" {
+    mode "1920x1080@74.973"
+    scale 1
+}
+
+output "eDP-1" {
+    off
+    mode "1920x1080@60"
+    scale 1
+}
+
 // ────────────── Keybindings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
 
@@ -42,13 +53,14 @@ binds {
     MOD+SHIFT+T                         hotkey-overlay-title="Open Terminal: wezterm"           { spawn-sh "wezterm"; }
     // ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi"          { spawn-sh "wofi"; }
     ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi"          { spawn-sh "~/.config/rofi/launcher.sh"; }
+    MOD+Period                             { spawn-sh "~/.config/rofi/emojipicker.sh"; }
     // MOD+V                               hotkey-overlay-title="Open Clipboard Manager via: wofi" { spawn-sh "~/.config/wofi/scripts/cliphist.sh | wl-copy"; }
     // WARN: The binds below maybe not correct. Do not uncomment without check cliphist document
     // MOD+SHIFT+V                         hotkey-overlay-title="Open Clipboard Manager via: rofi" { spawn-sh "~/.config/rofi/scripts/cliphist.sh | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"; }
 
     // MOD+V                               hotkey-overlay-title="Open Clipboard Manager via: wofi" { spawn-sh "~/.config/wofi/scripts/clipvault.sh"; }
     MOD+V                               hotkey-overlay-title="Open Clipboard Manager via: rofi" { spawn-sh "~/.config/rofi/clipboard.sh"; }
-    MOD+F                               hotkey-overlay-title="Open Browser: firefox"            { spawn-sh "firefox"; }
+    MOD+F                               hotkey-overlay-title="Open Browser: chrome"            { spawn-sh "google-chrome-stable"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: hyprlock"            { spawn-sh "hyprlock"; }
     MOD+SHIFT+E                         hotkey-overlay-title="Open Editor: VSCodium"            { spawn-sh "codium"; }
     MOD+CTRL+B                          hotkey-overlay-title="Open or Reload: waybar"           { spawn-sh "~/.config/waybar/waybar.sh"; }
@@ -205,8 +217,7 @@ binds {
 // ────────────── Layout Settings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 
-  // include "~/.config/niri/niri-color.kdl"
-
+  include "niri-color.kdl"
   layout {
       gaps 10 // 16 // Gap between windows
       center-focused-column "never" // Don’t auto-center focused column
@@ -216,11 +227,6 @@ binds {
           proportion 0.33333
           proportion 0.5
           proportion 0.66667
-      }
-
-      focus-ring {
-          width 3
-          active-color "#e2c46d"
       }
 
       shadow {

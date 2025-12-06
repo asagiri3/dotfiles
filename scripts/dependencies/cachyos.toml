@@ -18,7 +18,7 @@ pkgs = [
     "btop",
     "imagemagick",
     "ffmpeg",
-    "xwayland-statellite",
+    "xwayland-satellite",
     "unrar",
     "unzip",
     "npm",
@@ -27,7 +27,7 @@ pkgs = [
     "fish",
     "fastfetch",
     "brightnessctl",
-    "power-profile-deamon",
+    "power-profiles-daemon",
     # DEV
     "rust",
     "clang",

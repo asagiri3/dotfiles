@@ -17,7 +17,7 @@
     },
     // NETWORK
     "network": {
-        "interface": "ens192",
+        "interface": "wlan0",
         "format": "{ifname}",
         // "format-wifi": " ",
         "format-wifi": "{icon}",
@@ -72,7 +72,7 @@
         },
         "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% 󰂄",
-        "format-plugged": "{capacity}% 󰂄 ",
+        "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "format-icons": [
             "󰁻",
@@ -155,8 +155,8 @@
         },
         "modules": [
             "custom/expand",
-            // "pulseaudio",
-            "bluetooth",
+            "pulseaudio",
+            // "bluetooth",
             "custom/end"
         ]
     }

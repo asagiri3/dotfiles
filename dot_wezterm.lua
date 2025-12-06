@@ -60,24 +60,24 @@ config.max_fps = 75 -- 75Hz Monitor
 
 -- Choose Vulkan
 -- For Windows
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
-		if gpu.backend == "Vulkan" and gpu.device_type == "IntegratedGpu" then
-			config.webgpu_preferred_adapter = gpu
-			config.front_end = "WebGpu"
-			break
-		end
-	end
--- For Linux
-elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
-	for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
-		if gpu.backend == "Vulkan" then
-			config.webgpu_preferred_adapter = gpu
-			config.front_end = "WebGpu"
-			break
-		end
+-- if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
+	if gpu.backend == "Vulkan" then
+		config.webgpu_preferred_adapter = gpu
+		config.front_end = "WebGpu"
+		break
 	end
 end
+-- For Linux
+-- elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
+	if gpu.backend == "Vulkan" then
+		config.webgpu_preferred_adapter = gpu
+		config.front_end = "WebGpu"
+		break
+	end
+end
+-- end
 
 config.adjust_window_size_when_changing_font_size = false
 config.initial_cols = 104
