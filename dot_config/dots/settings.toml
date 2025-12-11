@@ -1,0 +1,13 @@
+[options]
+master_path = "~/.config/dots"
+
+[settings.master]
+clipboardmanager = "clipvault"
+isrofi = "true"
+style = "custom"
+theme = "dark"
+waldir = "$HOME/.wallpaper/"
+
+[settings.launcher]
+launchertype = "vertical"
+walsectype = "horizontal"
