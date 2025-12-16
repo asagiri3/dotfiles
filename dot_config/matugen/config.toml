@@ -33,3 +33,7 @@ output_path = '~/.config/rofi/options/wallpapers.rasi'
 [templates.wezterm]
 input_path = './templates/wezterm.lua'
 output_path = '~/.config/wezterm/colors.lua'
+
+[templates.eww]
+input_path = './templates/eww.scss'
+output_path = '~/.config/eww/colors.scss'
