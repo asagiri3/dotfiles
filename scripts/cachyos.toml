@@ -76,12 +76,13 @@ pkgs = [
     "fzf",
     "yazi",
     # RICING?
-    "breeze-icons",
+    "breeze",
     "rofi",
     "wofi",
     "swww",
     "matugen",
     "swaync",       ## REQUIRED FOR NOTIFICATIONS
+    "adw-gtk-them",
 ]
 is_sudo = true
 
