@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+$HOME/.config/eww/scripts/eww-niri | jq -c '.outputs.[].workspaces |= sort_by(.index)'

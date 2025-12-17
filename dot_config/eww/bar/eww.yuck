@@ -1,0 +1,128 @@
+; CREDITS
+; Thanks to: @druskus20 (Github)
+; Thanks to: JustineSmithies (Codeberg)
+; For this config !!
+
+; Monitor that i support:
+; #1: Virtual-1 - My VM
+; #1: eDP-1 - My laptop monitor
+; #2: HDMI-A-1 - My extended monitor
+
+; To init all bar for all monitor, use the script in `$HOME/.config/eww/bar/scripts/start.sh`
+
+;============== TRAY ==============
+
+(defwidget tray []
+  (box :class "tray"
+    (systray)))
+
+;============== WORKSPACES ==============
+
+(deflisten workspaces "scripts/eww-niri")
+(defwidget workspaces [monitor]
+  (box :orientation "h"
+       :class "workspaces"
+       :space-evenly false
+    (for wsp in {"${workspaces.outputs[monitor].workspaces}"}
+      (eventbox :cursor "pointer"
+        (button :onclick "niri msg action focus-workspace ${wsp.index}"
+          (box :class "workspace ${wsp.is_active ? 'active' : 'non'} ${arraylength(wsp.columns) == 0 ? 'empty' : ''}"
+                (label :text "${wsp.name != 'null' ? wsp.name :  wsp.index}")))))))
+; SPECIAL THANKS TO druskus20 FOR THIS !
+; I want to sort index by default because when you named a workspace, it will have index 1 or something very low
+; but this program doesn't sort by default. A pull request?
+
+(defvar eww "eww -c $HOME/.config/eww/bar")
+
+;============== TOP ==============
+
+(defwidget top [monitor]
+    (box :orienteation "h"
+         :space-evenly "false"
+         :valign "start"
+;; (launcher)
+(workspaces :monitor "${monitor}")))
+
+;============== TRAY ==============
+
+(defvar revealtray false)
+(defwidget mtray []
+    (box :space-evenly false
+         :class "mtray"
+        (box :class "mtrayb"
+             :orientation "h"
+             :space-evenly false
+            (eventbox :class "event-tray"
+                      :onhover "${eww} update revealtray=true"
+                      :onhoverlost "${eww} update revealtray=false"
+                (box :space-evenly false
+                    (revealer :reveal revealtray
+                              :transition { "sliderleft" }
+                              :duration {"500ms"}
+                        (box :orientation "h"
+                             :space-evenly false
+                             :class "mtraya"
+                            (systray)))
+                        (box :orienteation "h"
+                             :space-evenly false
+                             :class "title-mtray"
+                             (label :text "fas")))))))
+
+;============== BAR WIDGET ==============
+
+(defwidget bar0 [monitor]
+    (box :orientation "h"
+         :space-evenly true
+         :class "bar"
+        (box :class "left"
+             :halign "start"
+             :space-evenly false
+             :spacing 15
+            (workspaces :monitor monitor))
+        (box :class "right"
+             :halign "end"
+             :spacing 15
+             :space-evenly false
+            (mtray))
+))
+
+;============== DEFEINE WINDOW ==============
+
+(defwindow barVirtual-1 ; for `Virtual-1` (my Linux VM) monitor
+    :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x 0
+                        :y 0
+                        :width "100%"
+                        :height "20px"
+                        :anchor "top center")
+    :exclusive true
+    :focusable false
+    :stacking "fg"
+(bar0 :monitor "Virtual-1"))
+
+(defwindow bareDP-1 ; for `eDP-1` (my laptop monitor) monitor
+    :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x 0
+                        :y 0
+                        :width "100%"
+                        :height "20px"
+                        :anchor "top center")
+    :exclusive true
+    :focusable false
+    :stacking "fg"
+(bar :monitor "eDP-1"))
+
+(defwindow barHDMI-A-1 ; for `HDMI-A-1` (my extended monitor) monitor
+    :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x 0
+                        :y 0
+                        :width "100%"
+                        :height "20px"
+                        :anchor "top center")
+    :exclusive true
+    :focusable false
+    :stacking "fg"
+(bar :monitor "HDMI-A-1"))
