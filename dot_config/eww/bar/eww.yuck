@@ -10,7 +10,7 @@
 
 ; To init all bar for all monitor, use the script in `$HOME/.config/eww/bar/scripts/start.sh`
 
-(include "var.yuck")
+(include "var.yuck") ; global var
 (defvar eww "eww -c $HOME/.config/eww/bar")
 
 ;============== WORKSPACES ==============
@@ -40,7 +40,7 @@
          :space-evenly false
          "${hour}:${min} ${meridiem}"))
 
-;============== TIMES ==============
+;============== DATE ==============
 
 (defpoll day_of_week :interval "10m" "date +%a | tr [:upper:] [:lower:]")
 (defpoll day         :interval "10m" "date +%d")
@@ -49,68 +49,53 @@
 
 (defwidget date []
     (box :orientation "h"
+         :space-evenly false
          :class "date"
-         day_of_week day month year))
+         "${day_of_week} ${day} ${month} ${year}"))
 
 ;============== TRAY ==============
 
 (defvar retray false)
-(defwidget mtray []
-    (box :space-evenly false
-         :class "tray-box"
-        (box :class "tray-box-con"
-             :orientation "h"
-             :space-evenly false
-            (eventbox :class "event-tray"
-                      :onhover "${eww} update retray=true"
-                      :onhoverlost "${eww} update retray=false"
-                (box :space-evenly false
-                    (revealer :reveal retray
-                              :transition "slideleft"
-                              :duration "900ms"
-                            (systray :spacing 5
-                                     :icon-size 17
-                                     :orientation "h"))
-                        (box :orientation "h"
-                             :space-evenly false
-                             :class "title-tray"
-                             (label :text "")))))))
-
 (defwidget tray []
-        (eventbox :onhover "${eww} update retray=true" :onhoverlost "${eww} update retray=false"
-            (box :space-evenly false
-                 :class "tray"
-                (revealer :reveal retray
-                          :transition "slideleft"
-                          :duration "900ms"
-                          (systray :spacing 5 :icon-size 15))
-                (box :orientation "h"
-                     :space-evenly false
-                     (label :text "")))))
+    (eventbox :onhover "${eww} update retray=true" :onhoverlost "${eww} update retray=false"
+        (box :space-evenly false
+             :class "tray"
+            (revealer :reveal retray
+                      :transition "slideleft"
+                      :duration "900ms"
+                      (systray :class "render-tray" :spacing 5 :icon-size 14))
+            (box :orientation "h"
+                 :space-evenly false
+                 (label :text "")))))
 
 ;============== BAR WIDGET ==============
 
-;(defwidget bar [monitor]
-;    (box :orientation "h"
-;         :space-evenly true
-;         :class "bar"
-;        (box :class "left"
-;             :halign "start"
-;             :space-evenly false
-;             :spacing 15
-;            (workspaces :monitor monitor))
-;        (box :class "middle"
-;             :halign "center"
-;             :space-evenly false
-;             :spacing 15
-;             (middle))
-;        (box :class "right"
-;             :halign "end"
-;             :spacing 15
-;             :space-evenly false
-;            (bottom))))
+(defvar repower false)
+(defwidget power []
+    (eventbox :onhover "${eww} update repower=true"
+              :onhoverlost "${eww} update repower=false"
+        (box :orientation "h"
+             :space-evenly false
+             :class "power-menu"
+             (revealer :reveal repower
+                       :transition "slideleft"
+                       :duration "550ms"
 
-(defvar space 3)
+                (box :orientation "h"
+                     :spacing 10
+                     :space-evenly false
+                     :class "box-button"
+                     (button :class "button-logout" :tooltip "Logout" :onclick "killall niri" "󰍃")
+                     (button :class "button-reboot" :tooltip "Reboot" :onclick "reboot" "")
+                     ))
+             (button :class "button-shutdown" :tooltip "Shutdown" :onclick "shutdown now" "⏻")
+        )
+              )
+    )
+
+;============== BAR WIDGET ==============
+
+(defvar space 0)
 (defwidget bar [monitor]
   (box :orientation "h"
        :space-evenly true
@@ -130,7 +115,9 @@
          :spacing space
          :space-evenly false
       (tray)
-      (date))))
+      (date)
+      (power)
+      )))
 
 ;============== DEFEINE WINDOW ==============
 

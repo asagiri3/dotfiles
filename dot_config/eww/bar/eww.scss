@@ -4,98 +4,90 @@
   all: unset;
 }
 
+// $lay:$surface_container;
+// $on_lay:$on_surface;
+$lay: $surface;
+$on_lay: $on_surface;
+$red: #F7768E;
+$green: #73DACA;
+$yellow: #E0AF68;
+
 window {
   font-family: "Rubik Medium", sans-serif;
-  font-size: 13px;
-}
-
-.bar {
-  background: $surface;
+  font-size: 10.5px;
 }
 
 .workspaces {
-  font-family: "FiraCode Nerd Font", sans-serif;
+  // font-family: "FiraCode Nerd Font", sans-serif; // the symbol is the small
+  font-size: 9px;
   margin: 3px;
   padding-left: 10px;
 
   .workspace {
-    padding: 5px 5px;
+    padding: 3px 5px;
   }
 
   .workspace.active {
     color: $primary;
-    // background: $surface_variant;
   }
 }
 
-
 .bar {
-  background: $surface;
+  background: $surface_container;
 
   .center {
     margin: 3px;
-    padding: 5px 7px;
-    background: $surface_variant;
-    color: $on_surface_variant;
+    padding: 3px 7px;
+    background: $lay;
+    color: $on_lay;
   }
 
   .right {
     padding-right: 10px;
+
     .tray {
       margin: 3px;
-      padding: 5px 7px;
-      background: $surface_variant;
-      color: $on_surface_variant;
+      padding: 3px 7px;
+      background: $lay;
+      color: $on_lay;
+
+      .render-tray {
+        padding-right: 5px;
+      }
     }
 
     .date {
+      font-family: "Literata Medium", serif; // regular too much pixalated at small size
+      font-size: 10px; // because serif font a bit bigger than sans
+      // // 10px makes the bar more bigger than a expected (a bit). But ... 9px the font too much pixelated
       margin: 3px;
-      padding: 5px 7px;
-      background: $surface_variant;
-      color: $on_surface_variant;
+      padding: 3px 7px;
+      background: $lay;
+      color: $on_lay;
+    }
+
+    .power-menu {
+      font-family: "FiraCode Nerd Font Propo", sans-serif;
+      margin: 3px;
+      padding: 3px 7px;
+      background: $lay;
+      color: $on_lay;
+
+      .box-button {
+        padding-right: 10px;
+
+        .button-logout {
+          color: $green;
+        }
+
+        .button-reboot {
+          color: $yellow;
+        }
+      }
+
+      .button-shutdown {
+        color: $red;
+      }
     }
   }
-
 }
-
-// menu {
-// 	padding: 5px 5px;
-//   background-color: #1d2021;
-// 
-// 	>menuitem {
-//     font-size: 14px;
-// 		padding: 2px 5px;
-//     //color: $foreground;
-// 
-// 		&:disabled label {
-// 			color: #928374;
-// 		}
-// 
-// 		&:hover {
-//       background-color: #282828;
-// 		}
-// 	}
-// 
-// 	separator {
-// 		padding-top: 1px;
-// 
-// 		&:last-child {
-// 			padding: unset;
-// 		}
-// 	}
-// }
-
-// .tray-box {
-//   .tray-box-con {
-//     padding: 5px 5px;
-//     background: $surface_variant;
-// 
-//     .render-tray-box {
-//       padding-right: 5px;
-//     }
-// 
-//     .title-tray-box {
-//       color: $outline;
-//     }
-//   }
-// }
