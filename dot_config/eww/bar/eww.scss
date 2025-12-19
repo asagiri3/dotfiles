@@ -1,0 +1,101 @@
+@import '../colors.scss';
+
+* {
+  all: unset;
+}
+
+window {
+  font-family: "Rubik Medium", sans-serif;
+  font-size: 13px;
+}
+
+.bar {
+  background: $surface;
+}
+
+.workspaces {
+  font-family: "FiraCode Nerd Font", sans-serif;
+  margin: 3px;
+  padding-left: 10px;
+
+  .workspace {
+    padding: 5px 5px;
+  }
+
+  .workspace.active {
+    color: $primary;
+    // background: $surface_variant;
+  }
+}
+
+
+.bar {
+  background: $surface;
+
+  .center {
+    margin: 3px;
+    padding: 5px 7px;
+    background: $surface_variant;
+    color: $on_surface_variant;
+  }
+
+  .right {
+    padding-right: 10px;
+    .tray {
+      margin: 3px;
+      padding: 5px 7px;
+      background: $surface_variant;
+      color: $on_surface_variant;
+    }
+
+    .date {
+      margin: 3px;
+      padding: 5px 7px;
+      background: $surface_variant;
+      color: $on_surface_variant;
+    }
+  }
+
+}
+
+// menu {
+// 	padding: 5px 5px;
+//   background-color: #1d2021;
+// 
+// 	>menuitem {
+//     font-size: 14px;
+// 		padding: 2px 5px;
+//     //color: $foreground;
+// 
+// 		&:disabled label {
+// 			color: #928374;
+// 		}
+// 
+// 		&:hover {
+//       background-color: #282828;
+// 		}
+// 	}
+// 
+// 	separator {
+// 		padding-top: 1px;
+// 
+// 		&:last-child {
+// 			padding: unset;
+// 		}
+// 	}
+// }
+
+// .tray-box {
+//   .tray-box-con {
+//     padding: 5px 5px;
+//     background: $surface_variant;
+// 
+//     .render-tray-box {
+//       padding-right: 5px;
+//     }
+// 
+//     .title-tray-box {
+//       color: $outline;
+//     }
+//   }
+// }

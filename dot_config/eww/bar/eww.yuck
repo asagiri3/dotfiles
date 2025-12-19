@@ -10,11 +10,8 @@
 
 ; To init all bar for all monitor, use the script in `$HOME/.config/eww/bar/scripts/start.sh`
 
-;============== TRAY ==============
-
-(defwidget tray []
-  (box :class "tray"
-    (systray)))
+(include "var.yuck")
+(defvar eww "eww -c $HOME/.config/eww/bar")
 
 ;============== WORKSPACES ==============
 
@@ -26,65 +23,114 @@
     (for wsp in {"${workspaces.outputs[monitor].workspaces}"}
       (eventbox :cursor "pointer"
         (button :onclick "niri msg action focus-workspace ${wsp.index}"
-          (box :class "workspace ${wsp.is_active ? 'active' : 'non'} ${arraylength(wsp.columns) == 0 ? 'empty' : ''}"
-                (label :text "${wsp.name != 'null' ? wsp.name :  wsp.index}")))))))
+          (box :class "workspace ${wsp.is_active ? 'active' : 'inactive'} ${arraylength(wsp.columns) == 0 ? 'empty' : ''}"
+                (label :text "${wsp.columns != [] ? work : non}")))))))
+; (workspaces :monitor "HDMI-1")
 ; SPECIAL THANKS TO druskus20 FOR THIS !
 ; I want to sort index by default because when you named a workspace, it will have index 1 or something very low
 ; but this program doesn't sort by default. A pull request?
 
-(defvar eww "eww -c $HOME/.config/eww/bar")
+;============== TIMES ==============
 
-;============== TOP ==============
+(defpoll hour :interval "1s" "date +%I")
+(defpoll min  :interval "1s" "date +%M")
+(defpoll meridiem :interval "1s" "date +%p")
+(defwidget middle []
+    (box :orientation "h"
+         :space-evenly false
+         "${hour}:${min} ${meridiem}"))
 
-(defwidget top [monitor]
-    (box :orienteation "h"
-         :space-evenly "false"
-         :valign "start"
-;; (launcher)
-(workspaces :monitor "${monitor}")))
+;============== TIMES ==============
+
+(defpoll day_of_week :interval "10m" "date +%a | tr [:upper:] [:lower:]")
+(defpoll day         :interval "10m" "date +%d")
+(defpoll month       :interval "1h"  "date +%m")
+(defpoll year        :interval "1h"  "date +%y")
+
+(defwidget date []
+    (box :orientation "h"
+         :class "date"
+         day_of_week day month year))
 
 ;============== TRAY ==============
 
-(defvar revealtray false)
+(defvar retray false)
 (defwidget mtray []
     (box :space-evenly false
-         :class "mtray"
-        (box :class "mtrayb"
+         :class "tray-box"
+        (box :class "tray-box-con"
              :orientation "h"
              :space-evenly false
             (eventbox :class "event-tray"
-                      :onhover "${eww} update revealtray=true"
-                      :onhoverlost "${eww} update revealtray=false"
+                      :onhover "${eww} update retray=true"
+                      :onhoverlost "${eww} update retray=false"
                 (box :space-evenly false
-                    (revealer :reveal revealtray
-                              :transition { "sliderleft" }
-                              :duration {"500ms"}
+                    (revealer :reveal retray
+                              :transition "slideleft"
+                              :duration "900ms"
+                            (systray :spacing 5
+                                     :icon-size 17
+                                     :orientation "h"))
                         (box :orientation "h"
                              :space-evenly false
-                             :class "mtraya"
-                            (systray)))
-                        (box :orienteation "h"
-                             :space-evenly false
-                             :class "title-mtray"
-                             (label :text "fas")))))))
+                             :class "title-tray"
+                             (label :text "")))))))
+
+(defwidget tray []
+        (eventbox :onhover "${eww} update retray=true" :onhoverlost "${eww} update retray=false"
+            (box :space-evenly false
+                 :class "tray"
+                (revealer :reveal retray
+                          :transition "slideleft"
+                          :duration "900ms"
+                          (systray :spacing 5 :icon-size 15))
+                (box :orientation "h"
+                     :space-evenly false
+                     (label :text "")))))
 
 ;============== BAR WIDGET ==============
 
-(defwidget bar0 [monitor]
-    (box :orientation "h"
-         :space-evenly true
-         :class "bar"
-        (box :class "left"
-             :halign "start"
-             :space-evenly false
-             :spacing 15
-            (workspaces :monitor monitor))
-        (box :class "right"
-             :halign "end"
-             :spacing 15
-             :space-evenly false
-            (mtray))
-))
+;(defwidget bar [monitor]
+;    (box :orientation "h"
+;         :space-evenly true
+;         :class "bar"
+;        (box :class "left"
+;             :halign "start"
+;             :space-evenly false
+;             :spacing 15
+;            (workspaces :monitor monitor))
+;        (box :class "middle"
+;             :halign "center"
+;             :space-evenly false
+;             :spacing 15
+;             (middle))
+;        (box :class "right"
+;             :halign "end"
+;             :spacing 15
+;             :space-evenly false
+;            (bottom))))
+
+(defvar space 3)
+(defwidget bar [monitor]
+  (box :orientation "h"
+       :space-evenly true
+       :class "bar"
+    (box :class "left"
+         :halign "start"
+         :space-evenly false
+         :spacing space
+      (workspaces :monitor monitor))
+    (box :class "center"
+         :halign "center"
+         :space-evenly false
+         :spacing space
+         (middle))
+    (box :class "right"
+         :halign "end"
+         :spacing space
+         :space-evenly false
+      (tray)
+      (date))))
 
 ;============== DEFEINE WINDOW ==============
 
@@ -99,7 +145,7 @@
     :exclusive true
     :focusable false
     :stacking "fg"
-(bar0 :monitor "Virtual-1"))
+(bar :monitor "Virtual-1"))
 
 (defwindow bareDP-1 ; for `eDP-1` (my laptop monitor) monitor
     :monitor 0
