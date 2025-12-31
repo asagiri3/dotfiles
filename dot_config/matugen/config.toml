@@ -37,3 +37,8 @@ output_path = '~/.config/wezterm/colors.lua'
 [templates.eww]
 input_path = './templates/eww.scss'
 output_path = '~/.config/eww/colors.scss'
+post_hook = '~/.config/eww/scripts/reload.sh'
+
+[templates.foot]
+input_path = './templates/foot.ini'
+output_path = '~/.config/foot/colors.ini'
