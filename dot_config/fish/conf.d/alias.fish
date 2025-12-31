@@ -35,12 +35,10 @@ alias r="paru -Rns"
 alias ie="paru -Qqe"
 alias iea="paru -Q"
 
-alias ma="matugen"
-alias mai="matugen image"
-alias mais="matugen image --show-colors"
-alias maig="matugen --config ~/.config/matugen/config-gtk.toml image"
-alias maigs="matugen --config ~/.config/matugen/config-gtk.toml image --show-colors"
+alias matugen-gtk="matugen --config ~/.config/matugen/config-gtk.toml"
 
 alias change="$EDITOR ~/.config/fish/"
 alias niri-ch="$EDITOR ~/.config/niri/"
 alias sync="xclip -o | wl-copy"
+
+alias eww-bar="eww -c $HOME/.config/eww/bar"

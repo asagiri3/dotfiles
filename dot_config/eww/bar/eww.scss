@@ -4,22 +4,20 @@
   all: unset;
 }
 
-// $lay:$surface_container;
-// $on_lay:$on_surface;
-$lay: $surface;
-$on_lay: $on_surface;
-$red: #F7768E;
-$green: #73DACA;
-$yellow: #E0AF68;
+// $lay: $surface_container_low;
+// $on_lay: $on_surface;
+$lay: mix($surface_bright, $surface, 60%);
+$on_lay: $on_surface_variant;
+$green: #73d66e;
+$red: #e84e4c;
+$yellow: #bdce7b;
 
 window {
   font-family: "Rubik Medium", sans-serif;
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 .workspaces {
-  // font-family: "FiraCode Nerd Font", sans-serif; // the symbol is the small
-  font-size: 9px;
   margin: 3px;
   padding-left: 10px;
 
@@ -32,8 +30,32 @@ window {
   }
 }
 
+// GLOBAL SLIDER STYLE
+
+scale trough {
+  all: unset;
+  background-color: $surface_variant;
+  border-radius: 5px;
+  min-height: 5px;
+  min-width: 80px;
+  margin: .3rem 0 .3rem 0;
+}
+
+scale trough highlight {
+  background-color: $primary;
+  border-radius: 5px;
+}
+
+scale.over trough highlight {
+  background-color: $error;
+  border-radius: 5px;
+}
+
+// CLOSED
+
 .bar {
-  background: $surface_container;
+  // background: $surface_container_high;
+  background: $surface;
 
   .center {
     margin: 3px;
@@ -56,10 +78,19 @@ window {
       }
     }
 
+    .volume {
+      margin: 3px;
+      padding: 3px 7px;
+      background: $lay;
+      color: $on_lay;
+
+      .volbar {
+        padding-right: 5px;
+      }
+    }
+
     .date {
       font-family: "Literata Medium", serif; // regular too much pixalated at small size
-      font-size: 10px; // because serif font a bit bigger than sans
-      // // 10px makes the bar more bigger than a expected (a bit). But ... 9px the font too much pixelated
       margin: 3px;
       padding: 3px 7px;
       background: $lay;
@@ -76,6 +107,13 @@ window {
       .box-button {
         padding-right: 10px;
 
+        // .button-logout {
+        //   color: $secondary;
+        // }
+
+        // .button-reboot {
+        //   color: $primary;
+        // }
         .button-logout {
           color: $green;
         }
@@ -85,6 +123,9 @@ window {
         }
       }
 
+      // .button-shutdown {
+      //   color: $error;
+      // }
       .button-shutdown {
         color: $red;
       }

@@ -42,10 +42,10 @@
 
 ;============== DATE ==============
 
-(defpoll day_of_week :interval "10m" "date +%a | tr [:upper:] [:lower:]")
-(defpoll day         :interval "10m" "date +%d")
+(defpoll day_of_week :interval "10m" "date +%a")
+(defpoll day         :interval "10m" "./scripts/day.sh")
 (defpoll month       :interval "1h"  "date +%m")
-(defpoll year        :interval "1h"  "date +%y")
+(defpoll year        :interval "1h"  "date +%Y")
 
 (defwidget date []
     (box :orientation "h"
@@ -62,13 +62,13 @@
              :class "tray"
             (revealer :reveal retray
                       :transition "slideleft"
-                      :duration "900ms"
+                      :duration "550ms"
                       (systray :class "render-tray" :spacing 5 :icon-size 14))
             (box :orientation "h"
                  :space-evenly false
                  (label :text "")))))
 
-;============== BAR WIDGET ==============
+;============== POWER ==============
 
 (defvar repower false)
 (defwidget power []
@@ -88,10 +88,35 @@
                      (button :class "button-logout" :tooltip "Logout" :onclick "killall niri" "󰍃")
                      (button :class "button-reboot" :tooltip "Reboot" :onclick "reboot" "")
                      ))
-             (button :class "button-shutdown" :tooltip "Shutdown" :onclick "shutdown now" "⏻")
-        )
-              )
-    )
+             (button :class "button-shutdown" :tooltip "Shutdown" :onclick "shutdown now" "⏻"))))
+
+;============== AUDIO ==============
+
+(deflisten speakers :initial '{ "volume": 0, "muted": "false" }' "./scripts/listen-volume.sh")
+; not me wrote this script, owner is druskus20
+; also this widget i inspired by druskus20. Thanks druskus20 too much
+(defvar reaudio false)
+(defwidget speakers []
+    (eventbox :onhover "${eww} update reaudio=true"
+              :onhoverlost "${eww} update reaudio=false"
+            (box :class "volume"
+                 :space-evenly false
+             (revealer :reveal reaudio
+                       :transition "slideleft"
+                       :duration "550ms"
+                (scale :class "volbar ${speakers.volume > 100 ? 'over' : ''}"
+                       :min 0
+                       :max 101
+                       :value "${speakers.volume}"
+                       :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%")
+                 )
+            (button :class "icon ${ speakers.volume > 100 ? 'over' : '' } ${ speakers.muted ? 'muted' : '' }"
+            :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+            :onrightclick "pavucontrol"
+            (label :text "${ speakers.muted ? '󰖁' :
+                             speakers.volume > 70 ? '󰕾' :
+                             speakers.volume > 35 ? '󰖀' :
+                             '󰕿' }")))))
 
 ;============== BAR WIDGET ==============
 
@@ -115,6 +140,7 @@
          :spacing space
          :space-evenly false
       (tray)
+      (speakers)
       (date)
       (power)
       )))
