@@ -8,9 +8,12 @@
 // $on_lay: $on_surface;
 $lay: mix($surface_bright, $surface, 60%);
 $on_lay: $on_surface_variant;
-$green: #73d66e;
-$red: #e84e4c;
-$yellow: #bdce7b;
+// $green: #73d66e;
+// $red: #e84e4c;
+// $yellow: #bdce7b;
+$green: $normal2;
+$red: $normal1;
+$yellow: $normal3;
 
 window {
   font-family: "Rubik Medium", sans-serif;

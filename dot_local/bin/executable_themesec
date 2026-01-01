@@ -15,7 +15,7 @@ Usage: themesec [-h | -g | -m] [args] [-d]
 Available flags:
   -h, --help       Show this help message
   -d               Delete existing GTK CSS files
-  -g               Run matugen with GTK template
+  -g               Run matugen with ONLY GTK template
   -m               Run matugen without GTK template
 
 NOTE: args requires the path to an image.
@@ -32,7 +32,7 @@ del_gtk() {
     done
 }
 
-# matugen with gtk template
+# matugen with ONLY gtk template
 matugen_gtk() {
     img="$1"
     if [[ ! -f "$img" ]]; then
@@ -41,6 +41,16 @@ matugen_gtk() {
     fi
 
     matugen image -c "$MATUGEN_GTK" "$img"
+}
+
+matugen_ansi() {
+    img="$1"
+    if [[ ! -f "$img" ]]; then
+        echo "Image not found: $img" >&2
+        exit 1
+    fi
+
+    yaatcolor-glue "$img"
 }
 
 # matugen without gtk template
@@ -72,6 +82,9 @@ while [[ $# -gt 0 ]]; do
     -g)
         mode="gtk"
         ;;
+    -a)
+        mode="ansi"
+        ;;
     -m)
         mode="non"
         ;;
@@ -85,6 +98,7 @@ done
 # --- Execute ----
 case "$mode" in
 gtk) matugen_gtk "$img" ;;
+ansi) matugen_ansi "$img" ;;
 non) matugen_non "$img" ;;
 *)
     echo "No mode selected (-g or -m)" >&2

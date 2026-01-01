@@ -1,0 +1,24 @@
+background = {{colors.background.default.hex}}
+foreground = {{colors.on_surface.default.hex}}
+cursor-color = {{colors.on_surface.default.hex}}
+cursor-text = {{colors.on_surface_variant.default.hex}}
+selection-background = {{colors.secondary_fixed_dim.default.hex}}
+selection-foreground = {{colors.on_secondary.default.hex}}
+
+palette = 0={{ yaat.normal._0 }}
+palette = 1={{ yaat.normal._1 }}
+palette = 2={{ yaat.normal._2 }}
+palette = 3={{ yaat.normal._3 }}
+palette = 4={{ yaat.normal._4 }}
+palette = 5={{ yaat.normal._5 }}
+palette = 6={{ yaat.normal._6 }}
+palette = 7={{ yaat.normal._7 }}
+palette = 8={{ yaat.bright._0 }}
+palette = 9={{ yaat.bright._1 }}
+palette = 10={{ yaat.bright._2 }}
+palette = 11={{ yaat.bright._3 }}
+palette = 12={{ yaat.bright._4 }}
+palette = 13={{ yaat.bright._5 }}
+palette = 14={{ yaat.bright._6 }}
+palette = 15={{ yaat.bright._7 }}
+

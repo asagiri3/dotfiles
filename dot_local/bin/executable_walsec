@@ -19,11 +19,24 @@ MODE="$(cat "$STATE")"
 echo "$MODE"
 
 case "$MODE" in
-gtk) themesec -d -g "$WAL" ;;
+gtk)
+    themesec -m "$WAL"
+    themesec -d -g "$WAL"
+    ;;
 non) themesec -m "$WAL" ;;
 *)
     echo "Invalid state: $MODE" >&2
     echo "non" >"$STATE"
     exit 1
+    ;;
+esac
+
+MODE="$(<"$HOME/.config/dots/yaat")"
+case "$MODE" in
+true)
+    themesec -a "$WAL"
+    ;;
+false)
+    exit 0
     ;;
 esac

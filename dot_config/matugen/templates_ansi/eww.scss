@@ -1,0 +1,10 @@
+/*
+* SCSS Color Variables
+* Generated with Matugen
+*/
+<* for name, value in colors *>
+    ${{name}}: {{value.dark.hex}};
+<* endfor *>
+<* for name, value in yaat.normal *>
+    $normal{{name}}: {{value}};
+<* endfor *>
