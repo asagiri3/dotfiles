@@ -44,7 +44,7 @@
 
 (defpoll day_of_week :interval "10m" "date +%a")
 (defpoll day         :interval "10m" "./scripts/day.sh")
-(defpoll month       :interval "1h"  "date +%m")
+(defpoll month       :interval "1h"  "date +%b")
 (defpoll year        :interval "1h"  "date +%Y")
 
 (defwidget date []

@@ -42,3 +42,4 @@ alias niri-ch="$EDITOR ~/.config/niri/"
 alias sync="xclip -o | wl-copy"
 
 alias eww-bar="eww -c $HOME/.config/eww/bar"
+alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
