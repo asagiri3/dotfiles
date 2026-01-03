@@ -92,6 +92,13 @@ scale.over trough highlight {
       }
     }
 
+    .battery {
+      margin: 3px;
+      padding: 3px 7px;
+      background: $lay;
+      color: $on_lay;
+    }
+
     .date {
       font-family: "Literata Medium", serif; // regular too much pixalated at small size
       margin: 3px;

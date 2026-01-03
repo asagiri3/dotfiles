@@ -30,6 +30,16 @@
 ; I want to sort index by default because when you named a workspace, it will have index 1 or something very low
 ; but this program doesn't sort by default. A pull request?
 
+;============== BATTERY ==============
+
+(deflisten batteries "chsd interval battery")
+(defwidget battery [battery]
+    (box :orientation "h"
+         :class "battery"
+         :space-evenly false
+        "${batteries.batteries[battery].symbol}")
+)
+
 ;============== TIMES ==============
 
 (defpoll hour :interval "1s" "date +%I")
@@ -141,6 +151,7 @@
          :space-evenly false
       (tray)
       (speakers)
+      (battery :battery "BAT0")
       (date)
       (power)
       )))
@@ -174,7 +185,7 @@
 (bar :monitor "eDP-1"))
 
 (defwindow barHDMI-A-1 ; for `HDMI-A-1` (my extended monitor) monitor
-    :monitor 0
+    :monitor 1
     :windowtype "dock"
     :geometry (geometry :x 0
                         :y 0

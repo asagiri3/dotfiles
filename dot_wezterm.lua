@@ -9,7 +9,7 @@ config.font = wezterm.font_with_fallback({
 	-- 	family = "FiraCode Nerd Font",
 	-- },
 	{
-		family = "FiraCode",
+		family = "Fira Code",
 	},
 	{
 		family = "Symbols Nerd Font Mono",
