@@ -50,7 +50,7 @@ matugen_ansi() {
         exit 1
     fi
 
-    yaatcolor-glue "$img"
+    chsat-color-glue "$img"
 }
 
 # matugen without gtk template

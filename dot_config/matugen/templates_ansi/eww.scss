@@ -6,5 +6,5 @@
     ${{name}}: {{value.dark.hex}};
 <* endfor *>
 <* for name, value in yaat.normal *>
-    $normal{{name}}: {{value}};
+    $normal{{name}}: {{value.hex}};
 <* endfor *>
