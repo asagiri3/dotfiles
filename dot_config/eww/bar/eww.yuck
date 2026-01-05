@@ -37,7 +37,7 @@
     (box :orientation "h"
          :class "battery"
          :space-evenly false
-        "${batteries.batteries[battery].symbol}")
+        "${batteries.battery != 'null' ? batteries.battery.batteries[battery].symbol : '󰂃'}")
 )
 
 ;============== TIMES ==============
@@ -159,7 +159,7 @@
 ;============== DEFEINE WINDOW ==============
 
 (defwindow barVirtual-1 ; for `Virtual-1` (my Linux VM) monitor
-    :monitor 0
+    ; :monitor 0
     :windowtype "dock"
     :geometry (geometry :x 0
                         :y 0
@@ -171,8 +171,21 @@
     :stacking "fg"
 (bar :monitor "Virtual-1"))
 
+(defwindow barVirtual-2 ; for `Virtual-2` (my Linux VM) monitor
+    ; :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x 0
+                        :y 0
+                        :width "100%"
+                        :height "20px"
+                        :anchor "top center")
+    :exclusive true
+    :focusable false
+    :stacking "fg"
+(bar :monitor "Virtual-2"))
+
 (defwindow bareDP-1 ; for `eDP-1` (my laptop monitor) monitor
-    :monitor 0
+    ; :monitor 0
     :windowtype "dock"
     :geometry (geometry :x 0
                         :y 0
@@ -185,7 +198,7 @@
 (bar :monitor "eDP-1"))
 
 (defwindow barHDMI-A-1 ; for `HDMI-A-1` (my extended monitor) monitor
-    :monitor 1
+    ; :monitor 1
     :windowtype "dock"
     :geometry (geometry :x 0
                         :y 0

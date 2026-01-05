@@ -31,7 +31,7 @@ non) themesec -m "$WAL" ;;
     ;;
 esac
 
-MODE="$(<"$HOME/.config/dots/yaat")"
+MODE="$(<"$HOME/.config/dots/chsat_color")"
 case "$MODE" in
 true)
     themesec -a "$WAL"

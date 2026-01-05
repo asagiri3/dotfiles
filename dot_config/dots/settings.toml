@@ -7,6 +7,8 @@ isrofi = "true"
 style = "custom"
 theme = "dark"
 waldir = "$HOME/.wallpaper/"
+ewwbar_dir = "$HOME/.config/eww/bar/"
+chsat_color = "true"
 
 [settings.launcher]
 launchertype = "vertical"
