@@ -14,6 +14,9 @@ set -gx NOTES ~/Notes
 set -gx WALLPAPER ~/.wallpaper
 set -gx DYNAMICS_THEME ~/.config/matugen
 
+# test starship :)
+starship init fish | source
+
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
