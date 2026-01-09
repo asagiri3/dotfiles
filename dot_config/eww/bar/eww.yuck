@@ -15,7 +15,7 @@
 
 ;============== WORKSPACES ==============
 
-(deflisten workspaces "scripts/eww-niri")
+(deflisten workspaces "eww-niri-workspaces")
 (defwidget workspaces [monitor]
   (box :orientation "h"
        :class "workspaces"

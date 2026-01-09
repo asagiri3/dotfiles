@@ -21,6 +21,7 @@ flags = ["-S"]
 pkgs = [
     # MAIN
     "paru",
+    "xclip",
     "fontconfig",
     "unzip",
     "flatpak",
@@ -81,8 +82,8 @@ pkgs = [
     "wofi",
     "swww",
     "matugen",
-    "swaync",       ## REQUIRED FOR NOTIFICATIONS
-    "adw-gtk-them",
+    "swaync",        ## REQUIRED FOR NOTIFICATIONS
+    "adw-gtk-theme",
 ]
 is_sudo = true
 
