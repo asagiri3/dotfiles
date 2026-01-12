@@ -118,6 +118,8 @@
                        :min 0
                        :max 101
                        :value "${speakers.volume}"
+                       :draw-value true
+                       :value-pos "right"
                        :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%")
                  )
             (button :class "icon ${ speakers.volume > 100 ? 'over' : '' } ${ speakers.muted ? 'muted' : '' }"
