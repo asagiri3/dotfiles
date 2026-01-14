@@ -33,6 +33,13 @@ window {
   }
 }
 
+.tooltip {
+  background-color: $lay;
+  color: $on_lay;
+  margin: 3px;
+  padding: 3px 5px;
+}
+
 // GLOBAL SLIDER STYLE
 
 scale trough {

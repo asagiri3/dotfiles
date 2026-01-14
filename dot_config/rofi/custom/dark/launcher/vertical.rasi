@@ -12,11 +12,9 @@
 
 // CONFIGURATION
 configuration {
-    modi:                       "drun,run,filebrowser";
+    modi:                       "drun";
     show-icons:                 true;
     display-drun:               " APPS";
-    display-run:                "󰲌 RUN";
-    display-filebrowser:        " FILES";
     drun-display-format:        "{name}";
     window-format:              "{w} · {c}";
     font:                       "Rubik Regular 10";
