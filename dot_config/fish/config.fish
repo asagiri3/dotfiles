@@ -8,6 +8,16 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #     cbonsai -p
 # end
 
+function fish_greeting
+    if test "$TERM" = foot
+        fastfetch --sixel "$HOME/.face"
+    else if test "$TERM_PROGRAM" = WezTerm
+        fastfetch --iterm "$HOME/.face" --logo-width 32
+    else
+        fastfetch
+    end
+end
+
 set -gx EDITOR nvim
 set -gx DOTFILES ~/.local/share/chezmoi
 set -gx NOTES ~/Notes
