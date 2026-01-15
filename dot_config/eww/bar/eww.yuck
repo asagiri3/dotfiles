@@ -32,7 +32,7 @@
 
 ;============== BATTERY ==============
 
-(deflisten batteries "chsd interval battery")
+(deflisten batteries "eww-batteries-rs")
 (defwidget battery [battery]
  (tooltip
   (label :class "tooltip" :text "${batteries.battery != 'null' ?

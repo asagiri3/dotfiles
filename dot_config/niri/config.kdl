@@ -35,9 +35,9 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+SHIFT+T                               hotkey-overlay-title="Open Terminal: ghostty"           { spawn-sh "ghostty"; }
+    MOD+T                               hotkey-overlay-title="Open Terminal: ghostty"           { spawn-sh "ghostty"; }
     MOD+CTRL+T                         hotkey-overlay-title="Open Terminal: wezterm"           { spawn-sh "wezterm"; }
-    MOD+T                          hotkey-overlay-title="Open Terminal: kitty"             { spawn-sh "kitty"; }
+    MOD+SHIFT+T                          hotkey-overlay-title="Open Terminal: kitty"             { spawn-sh "kitty"; }
     MOD+ALT+T                           hotkey-overlay-title="Open Terminal: foot"              { spawn-sh "foot"; }
     // ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi"          { spawn-sh "wofi"; }
     ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi"          { spawn-sh "~/.config/rofi/launcher.sh"; }
@@ -48,7 +48,7 @@ binds {
 
     // MOD+V                               hotkey-overlay-title="Open Clipboard Manager via: wofi" { spawn-sh "~/.config/wofi/scripts/clipvault.sh"; }
     MOD+V                               hotkey-overlay-title="Open Clipboard Manager via: rofi" { spawn-sh "~/.config/rofi/clipboard.sh"; }
-    MOD+F                               hotkey-overlay-title="Open Browser: chrome"            { spawn-sh "google-chrome-stable"; }
+    MOD+F                               hotkey-overlay-title="Open Browser: firefox"            { spawn-sh "firefox"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: hyprlock"            { spawn-sh "hyprlock"; }
     MOD+SHIFT+E                         hotkey-overlay-title="Open Editor: VSCodium"            { spawn-sh "codium"; }
     MOD+CTRL+B                          hotkey-overlay-title="Open or Reload: waybar"           { spawn-sh "~/.config/waybar/waybar.sh"; }
