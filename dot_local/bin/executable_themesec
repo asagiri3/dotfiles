@@ -7,6 +7,7 @@ GTK_FILE=(
     "$HOME/.config/gtk-4.0/gtk-dark.css"
 )
 MATUGEN_GTK="$HOME/.config/matugen/config-gtk.toml"
+MATUGEN_QT="$HOME/.config/matugen/config_qtkde.toml"
 
 # Help message
 phelp() {
@@ -40,7 +41,18 @@ matugen_gtk() {
         exit 1
     fi
 
-    matugen image -c "$MATUGEN_GTK" "$img"
+    matugen image "$img" -c "$MATUGEN_GTK"
+}
+
+# matugen with ONLY gtk template
+matugen_qt() {
+    img="$1"
+    if [[ ! -f "$img" ]]; then
+        echo "Image not found: $img" >&2
+        exit 1
+    fi
+
+    matugen image "$img" -c "$MATUGEN_QT"
 }
 
 matugen_ansi() {
@@ -88,6 +100,9 @@ while [[ $# -gt 0 ]]; do
     -m)
         mode="non"
         ;;
+    -G)
+        mode="qt"
+        ;;
     *)
         img="$1"
         ;;
@@ -100,6 +115,7 @@ case "$mode" in
 gtk) matugen_gtk "$img" ;;
 ansi) matugen_ansi "$img" ;;
 non) matugen_non "$img" ;;
+qt) matugen_qt "$img" ;;
 *)
     echo "No mode selected (-g or -m)" >&2
     exit 1

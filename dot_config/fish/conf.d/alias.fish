@@ -26,14 +26,7 @@ alias bp="bat --plain"
 alias bn="bat --paging=never"
 alias bpn="bn --plain"
 
-alias s="paru -Ss"
-alias sm="pacman -Ss"
-alias i="paru -S"
-alias u="paru -Syu"
-alias uy="paru -Syy"
-alias r="paru -Rns"
-alias ie="paru -Qqe"
-alias iea="paru -Q"
+alias s="sudo"
 
 alias matugen-gtk="matugen --config ~/.config/matugen/config-gtk.toml"
 

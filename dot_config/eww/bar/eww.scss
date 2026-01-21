@@ -16,11 +16,12 @@ $red: $normal1;
 $yellow: $normal3;
 
 window {
-  font-family: "Rubik Medium", sans-serif;
-  font-size: 11px;
+  font-family: "Montserrat SemiBold", sans-serif;
+  font-size: 10px;
 }
 
 .workspaces {
+  font-family: "Rubik Medium", sans-serif; // for large icons
   margin: 3px;
   padding-left: 10px;
 
