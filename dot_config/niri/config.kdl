@@ -210,6 +210,7 @@ binds {
   layout {
       gaps 10 // 16 // Gap between windows
       center-focused-column "never" // Don’t auto-center focused column
+      always-center-single-column
       background-color "transparent"
 
       preset-column-widths {
@@ -223,6 +224,14 @@ binds {
           spread 5
           offset x=0 y=5
           // color "#0007"
+      }
+
+      focus-ring {
+          on
+      }
+
+      border {
+          off
       }
 
       struts {}
@@ -301,7 +310,7 @@ binds {
     }
 
     window-rule {
-        geometry-corner-radius 20 // Set every window radius to 20
+        geometry-corner-radius 0 // Set every window radius to 0
         clip-to-geometry true
     }
 
@@ -317,17 +326,17 @@ include "workspaces.kdl"
 // ────────────── Environment Variables ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
 
-    environment {
-        DISPLAY ":1"
-        ELECTRON_OZONE_PLATFORM_HINT "auto"
-        QT_QPA_PLATFORM "wayland"
-        QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-        XDG_SESSION_TYPE "wayland"
-        XDG_CURRENT_DESKTOP "niri"
+environment {
+    DISPLAY ":1"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORM "wayland"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    XDG_SESSION_TYPE "wayland"
+    XDG_CURRENT_DESKTOP "niri"
 
-        QT_QPA_PLATFORMTHEME "qt6ct"
-    }
+    QT_QPA_PLATFORMTHEME "qt6ct"
+}
 
-    hotkey-overlay {
-        skip-at-startup
-    }
+hotkey-overlay {
+    skip-at-startup
+}
