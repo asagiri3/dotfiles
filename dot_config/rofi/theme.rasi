@@ -3,7 +3,6 @@
 
 @import "options/color.rasi"
 @import "options/binds.rasi"
-@import "options/fonts.rasi"
 
 window {
   width: 27em;
