@@ -40,8 +40,8 @@ binds {
     MOD+SHIFT+T                          hotkey-overlay-title="Open Terminal: kitty"             { spawn-sh "kitty"; }
     MOD+ALT+T                           hotkey-overlay-title="Open Terminal: foot"              { spawn-sh "foot"; }
     // ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi"          { spawn-sh "wofi"; }
-    ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi"          { spawn-sh "~/.config/rofi/launcher.sh"; }
-    MOD+Period                             { spawn-sh "~/.config/rofi/emojipicker.sh"; }
+    ALT+SPACE                           hotkey-overlay-title="Open App Launcher: wofi"          { spawn-sh "rofi -show drun"; }
+    MOD+Period                             { spawn-sh "rofi -show emoji"; }
     // MOD+V                               hotkey-overlay-title="Open Clipboard Manager via: wofi" { spawn-sh "~/.config/wofi/scripts/cliphist.sh | wl-copy"; }
     // WARN: The binds below maybe not correct. Do not uncomment without check cliphist document
     // MOD+SHIFT+V                         hotkey-overlay-title="Open Clipboard Manager via: rofi" { spawn-sh "~/.config/rofi/scripts/cliphist.sh | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"; }
@@ -208,7 +208,7 @@ binds {
 
   include "niri-color.kdl"
   layout {
-      gaps 10 // 16 // Gap between windows
+      gaps 6.5 // 16 // Gap between windows
       center-focused-column "never" // Don’t auto-center focused column
       always-center-single-column
       background-color "transparent"

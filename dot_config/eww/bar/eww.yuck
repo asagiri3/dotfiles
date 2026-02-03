@@ -175,7 +175,7 @@
                         :y 0
                         :width "100%"
                         :height "20px"
-                        :anchor "top center")
+                        :anchor "bottom center")
     :exclusive true
     :focusable false
     :stacking "fg"
@@ -188,7 +188,7 @@
                         :y 0
                         :width "100%"
                         :height "20px"
-                        :anchor "top center")
+                        :anchor "bottom center")
     :exclusive true
     :focusable false
     :stacking "fg"
@@ -201,7 +201,7 @@
                         :y 0
                         :width "100%"
                         :height "20px"
-                        :anchor "top center")
+                        :anchor "bottom center")
     :exclusive true
     :focusable false
     :stacking "fg"
@@ -214,7 +214,7 @@
                         :y 0
                         :width "100%"
                         :height "20px"
-                        :anchor "top center")
+                        :anchor "bottom center")
     :exclusive true
     :focusable false
     :stacking "fg"

@@ -1,0 +1,4 @@
+[templates.eww]
+input_path = '$MATUGEN_CONF/templates_ansi/eww.scss'
+output_path = '~/.config/eww/colors.scss'
+post_hook = '~/.config/eww/scripts/reload.sh'

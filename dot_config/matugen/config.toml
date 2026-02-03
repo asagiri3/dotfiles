@@ -26,10 +26,6 @@ output_path = '~/.config/niri/niri-color.kdl'
 input_path = './templates/rofi.rasi'
 output_path = '~/.config/rofi/options/color.rasi'
 
-[templates.rofiimg]
-input_path = './templates/rofi-sourceimg.rasi'
-output_path = '~/.config/rofi/options/wallpapers.rasi'
-
 # [templates.wezterm]
 # input_path = './templates/wezterm.lua'
 # output_path = '~/.config/wezterm/colors.lua'

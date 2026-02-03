@@ -10,7 +10,6 @@
         // "format": "{name}",
         "on-click": "activate"
     },
-    // TIMES
     "clock": {
         "format": "{:%I:%M %p}",
         "tooltip": false
