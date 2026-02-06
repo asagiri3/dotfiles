@@ -9,9 +9,6 @@
 
 clipmanager="$(<$HOME/.config/dots/clipboardmanager)"
 
-config="$stlconf"
-theme="$thmconf"
-
 dir="$HOME/.config/rofi/clipboard"
 
 rofi \
