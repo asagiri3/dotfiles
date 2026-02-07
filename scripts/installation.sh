@@ -2,6 +2,14 @@
 
 set -euo pipefail
 
+# check is system correct
+source "/etc/os-release"
+
+if [[ "$ID" != "cachyos" ]]; then
+    echo "This script unsupported for '$ID'. Expected: 'cachyos'"
+    exit 1
+fi
+
 # update system
 sudo pacman -Syu --no-confirm
 
@@ -81,7 +89,12 @@ chezmoi init --apply git@github.com:asagiri3/dotfiles.git
 
 nvim --headless "+Lazy! sync" "+qa"
 
-walsec # call wallpaper selection to init color scheme
+# call wallpaper selection to init color scheme
+if [[ -n "${WAYLAND_DISPLAY:-}" || -n "${DISPLAY:-}" ]]; then
+    walsec
+else
+    echo "Must run 'walsec' after installation! (no GUI session detected)"
+fi
 
 # warning
 
