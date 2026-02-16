@@ -36,8 +36,9 @@
 (defwidget battery [battery]
  (tooltip
   (label :class "tooltip" :text "${batteries.battery != 'null' ?
-            'percentage: ${batteries.battery.batteries[battery].percentage}%\\\nstage: ${batteries.battery.batteries[battery].state == 'unknown' ?
-                                'Pluging' :  batteries.battery.batteries[battery].stage}'
+            'percentage: ${batteries.battery.batteries[battery].percentage}%\\\nstate: ${batteries.battery.batteries[battery].state == 'unknown'
+            || batteries.battery.batteries[battery].state != 'discharing' && batteries.battery.batteries[battery].percentage == '100' ?
+                'Pluging' :  batteries.battery.batteries[battery].state}'
             : 'Unknown'}")
     (box :orientation "h"
          :class "battery"
