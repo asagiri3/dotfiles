@@ -12,7 +12,11 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.cmake" },
   { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.color.transparent-nvim" },
+  { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  -- { import = "astrocommunity.color.transparent-nvim" },
+  { import = "astrocommunity.colorscheme.catppuccin", enable = true },
   { import = "astrocommunity.recipes.cache-colorscheme" },
   -- import/override with your plugins folder
 }

@@ -28,6 +28,7 @@ alias bpn="bn --plain"
 
 alias s="sudo"
 
+alias astro="NVIM_APPNAME=astro nvim"
 alias matugen-gtk="matugen --config ~/.config/matugen/config-gtk.toml"
 
 alias change="$EDITOR ~/.config/fish/"

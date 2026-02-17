@@ -7,6 +7,11 @@ return {
             float = {
                 transparent = true,
             },
+            custom_highlights = function(C)
+                return {
+                    SnacksDashboardHeader = { fg = C.peach },
+                }
+            end,
         },
     },
     {
