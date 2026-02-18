@@ -11,6 +11,8 @@ return {
     custom_highlights = function(C)
       return {
         SnacksDashboardHeader = { fg = C.peach },
+        NeoTreeNormal = { bg = "NONE", ctermbg = "NONE" },
+        NeoTreeNormalNC = { bg = "NONE", ctermbg = "NONE" },
       }
     end,
   },
