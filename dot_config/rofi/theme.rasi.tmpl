@@ -1,30 +1,11 @@
 // Original author: @eljangus
 // Edited by me (@maachue)
 
-@import "options/wallpapers.rasi"
 @import "options/color.rasi"
 @import "options/binds.rasi"
 
-configuration{
- font: "JetBrainsMono Nerd Font Propo 11";
- modi: "drun,run";
- fixed-num-lines: false;
- show-icons: true;
- icon-theme: "Icons";
- eh: 1;
- dpi: 100;
- drun-display-format: "{name}";
- display-drun: "";
- display-run: "";
- display-filebrowser: "󱧷";
- location: 0;
-/* hover-select: true;
- me-select-entry: '';
- me-accept-entry: "MousePrimary"; */
-}
-
 window {
-  width: 60em;
+  width: 27em;
   padding: 0em;
   border: 0px;
   border-color: var(primary);
@@ -42,8 +23,9 @@ error-message {
 }
 
 entry {
+  font: "{{ .font.monospace_propo }}";
   hide-cursor-on-empty: true;
-  placeholder: " What do you need?";
+  placeholder: " Huh...";
   placeholder-color: var(secondary);
   text-color: var(secondary);
   border: 0em;
@@ -53,10 +35,10 @@ entry {
 }
 
 listview {
-  lines: 1;
+  lines: 6;
   margin: 0em;
   padding: 0.8em 0em 0em 0em;
-  columns: 6;
+  columns: 1;
   background-color: transparent;
   scrollbar: false;
   cycle: false;
@@ -81,7 +63,7 @@ inputbar {
 
 element {
   padding: 0.8em 0.27em 0.8em 0.27em;
-  orientation: vertical;
+  orientation: horizontal;
   margin: 0.14em;
   border: 0em;
 }
@@ -133,7 +115,7 @@ element selected.normal {
 }
 
 element-icon {
-  size: 10.6em;
+  size: 1.6em; 
   background-color: transparent;
   text-color: inherit;
 }

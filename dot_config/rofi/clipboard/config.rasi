@@ -1,10 +1,11 @@
 // Original author: @eljangus
 // Edited by me (@maachue)
 
-@import "~/.config/rofi/options/color.rasi"
-@import "~/.config/rofi/options/binds.rasi"
+@import "options/color.rasi"
+@import "options/binds.rasi"
 
-@import "~/.config/rofi/options/clip-binds.rasi"
+@import "options/clip-binds.rasi"
+@import "options/font.rasi"
 
 configuration{
  font: "JetBrainsMono Nerd Font Propo 11";
