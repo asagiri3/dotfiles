@@ -33,6 +33,7 @@ include "outputs.kdl"
 
 binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
+    MOD+CTRL+P                          { power-on-monitors; } // this will save me sometimes
 
     // ─── Applications ───
     MOD+T                               hotkey-overlay-title="Open Terminal: ghostty"           { spawn-sh "ghostty"; }
