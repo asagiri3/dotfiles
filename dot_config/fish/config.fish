@@ -9,6 +9,9 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 # end
 
 function fish_greeting
+    if set -q NVIM
+        return
+    end
     if test "$TERM" = foot
         fastfetch --sixel "$HOME/.face"
     else if test "$TERM_PROGRAM" = WezTerm
