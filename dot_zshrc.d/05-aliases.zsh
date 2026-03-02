@@ -38,5 +38,27 @@ alias change="$EDITOR ~/.config/fish/"
 alias niri-ch="$EDITOR ~/.config/niri/"
 alias sync="xclip -o | wl-copy"
 
-alias eww-bar="eww -c $HOME/.config/eww/bar"
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
+alias eww-bar="eww -c $HOME/.config/eww/bar"
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+function fetch() {
+    if [[ ! -v TERM_PROGRAM ]]; then
+        fastfetch
+    fi
+
+    if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
+        fastfetch --iterm "$HOME/.face" --logo-width 32
+    elif [[ "$TERM" == "foot" ]]; then
+        fastfetch --sixel "$HOME/.face"
+    else
+        fastfetch
+    fi
+}

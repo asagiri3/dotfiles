@@ -1,0 +1,17 @@
+# .zprofile
+
+# Get the aliases and functions
+
+# User specific environment and startup programs
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+if ! [[ "$PATH" =~ "$HOME/.cargo/bin:" ]]; then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi
+export PATH
+
+export EDITOR=nvim
+export BROWSER=firefox
