@@ -1,6 +1,6 @@
-silly_zen() { cbonsai -p >&2; }
-silly_talk() { fortune | cowsay -f stegosaurus >&2; }
-silly_sys() { fetch >&2; }
+silly_zen() { cbonsai -p; }
+silly_talk() { fortune | cowsay -f stegosaurus; }
+silly_sys() { fetch; }
 
 random_printing() {
   modes=(silly_zen silly_talk silly_sys)
