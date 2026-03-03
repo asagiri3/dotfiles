@@ -5,10 +5,9 @@
 @import "options/binds.rasi"
 
 @import "options/clip-binds.rasi"
-@import "options/font.rasi"
 
 configuration{
- font: "JetBrainsMono Nerd Font Propo 11";
+ font: "{{ .font.serif }}";
  modi: "drun,run";
  fixed-num-lines: false;
  show-icons: true;
@@ -44,6 +43,7 @@ error-message {
 }
 
 entry {
+  font: "{{ .font.monospace_propo }}";
   hide-cursor-on-empty: true;
   placeholder: " What do you need?";
   placeholder-color: var(secondary);
