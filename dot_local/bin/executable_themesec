@@ -41,7 +41,7 @@ matugen_gtk() {
         exit 1
     fi
 
-    matugen image "$img" -c "$MATUGEN_GTK"
+    matugen image "$img" -c "$MATUGEN_GTK" --source-color-index 0
 }
 
 # matugen with ONLY gtk template
@@ -52,7 +52,7 @@ matugen_qt() {
         exit 1
     fi
 
-    matugen image "$img" -c "$MATUGEN_QT"
+    matugen image "$img" -c "$MATUGEN_QT" --source-color-index 0
 }
 
 matugen_ansi() {
@@ -73,7 +73,7 @@ matugen_non() {
         exit 1
     fi
 
-    matugen image "$img"
+    matugen image "$img" --source-color-index 0
 }
 
 # --- Parse args ----

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-needed=$(matugen image "$1" --dry-run --json hex | jq '.colors.primary.default' -j | chsat-color --dump json-pretty)
-matugen image "$1" -c "$HOME/.config/matugen/config-ansi.toml" --import-json-string "$needed"
+needed=$(matugen image "$1" --dry-run --json hex --source-color-index 0 | jq '.colors.primary.default.color' -j | chsat-color --dump json-pretty)
+matugen image "$1" -c "$HOME/.config/matugen/config-ansi.toml" --import-json-string "$needed" --source-color-index 0
