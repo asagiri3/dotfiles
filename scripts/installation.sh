@@ -22,7 +22,7 @@ sudo pacman -Rns cachyos-niri-settings mako --no-confirm
 # dev
 sudo pacman -S paru xclip fontconfig unzip flatpak imagemagick ffmpeg xwayland-satellite \
     unrar unzip npm wtype github-cli fish brightnessctl rustup clang llvm \
-    cmake ninja neovim code \
+    cmake ninja neovim code vcpkg \
     --no-confirm
 
 # coreutils
@@ -95,6 +95,10 @@ if [[ -n "${WAYLAND_DISPLAY:-}" || -n "${DISPLAY:-}" ]]; then
 else
     echo "Must run 'walsec' after installation! (no GUI session detected)"
 fi
+
+# vcpkg
+
+git clone https://github.com/microsoft/vcpkg.git "$HOME/.local/share/vcpkg"
 
 # warning
 
