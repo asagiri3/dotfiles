@@ -10,3 +10,5 @@ fi
 
 # do my own later
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+
+alias gl="git log --oneline --graph --decorate --all"

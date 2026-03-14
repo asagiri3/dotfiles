@@ -34,7 +34,6 @@ alias s="sudo"
 alias astro="NVIM_APPNAME=astro nvim"
 alias matugen-gtk="matugen --config ~/.config/matugen/config-gtk.toml"
 
-alias change="$EDITOR ~/.config/fish/"
 alias niri-ch="$EDITOR ~/.config/niri/"
 alias sync="xclip -o | wl-copy"
 
@@ -61,4 +60,13 @@ function fetch() {
     else
         fastfetch
     fi
+}
+
+function build() {
+    if [[ ! -f "$PWD/CMakeLists.txt" ]]; then
+        echo "CMakeLists not found."
+        return 1
+    fi
+
+    cmake -B build -G Ninja "$@" && cmake --build build
 }

@@ -15,3 +15,7 @@ export PATH
 
 export EDITOR=nvim
 export BROWSER=firefox
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+
+. /etc/profile.d/vcpkg.sh
