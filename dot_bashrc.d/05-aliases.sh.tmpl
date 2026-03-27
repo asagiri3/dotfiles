@@ -1,26 +1,6 @@
 # zen, chill, silly
 alias bonsai='cbonsai --life 40 --multiplier 5 --time 20 --screensaver'
 
-{{ if eq .chezmoi.osRelease.id "fedora" }}
-# dnf, packages
-alias install='sudo dnf install'
-alias update='sudo dnf upgrade'
-alias wat='dnf check-upgrade'
-alias remove='sudo dnf remove'
-alias search='dnf search'
-{{ else if eq .chezmoi.osRelease.id "arch" }}
-{{ else if eq .chezmoi.osRelease.id "endeavouros" }}
-# pacman, packages
-alias install='sudo pacman -S'
-alias update='sudo pacman -Syu'
-alias wat='sudo pacman -Qu'
-alias remove='sudo pacman -Rns'
-alias search='pacman -Ss'
-{{ else }}
-# packages
-# nothing
-{{ end }}
-
 # eza, files, lists, directories
 alias ls='eza --group-directories-first'
 alias l='eza -l --icons --group-directories-first'                   # long list
@@ -47,3 +27,11 @@ alias grs='git remote show origin'
 alias duh='du -sh ./* 2>/dev/null'
 alias qh='history | tail -n 10'
 alias h10='fc -l -10'
+
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
