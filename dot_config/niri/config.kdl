@@ -193,8 +193,8 @@ binds {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
-    spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
-    // spawn-sh-at-startup "swww img /usr/share/wallpapers/cachyos-wallpapers/Skyscraper.png" // Set wallpaper
+    spawn-sh-at-startup "awww-daemon" // Wallpaper daemon
+    // spawn-sh-at-startup "awww img /usr/share/wallpapers/cachyos-wallpapers/Skyscraper.png" // Set wallpaper
     // spawn-sh-at-startup "~/.config/waybar/waybar.sh" // Launch waybar
     spawn-sh-at-startup "~/.config/eww/bar/scripts/start.sh" // start my eww bar
     spawn-sh-at-startup "swaync" // Notifications daemon
@@ -240,7 +240,7 @@ binds {
 
 
   layer-rule {
-    match namespace="^swww-daemon$"
+    match namespace="^awww-daemon$"
     place-within-backdrop true
   }
 

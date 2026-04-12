@@ -5,4 +5,4 @@ if [[ -f ~/current_work ]]; then
     export CURRENT_WORK=${~val}
 fi
 
-export CMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+# export CMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
