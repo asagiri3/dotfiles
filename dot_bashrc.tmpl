@@ -7,22 +7,7 @@
 # .bashrc
 
 # If not running interactively, don't do anything
-if [[ $- != *i* ]]; then
-  export EDITOR=nvim
-  export VISUAL=nvim
-
-  # User specific environment
-  if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-  fi
-  export PATH
-
-  # More PATH
-  # Cargo
-  if ! [[ "$PATH" =~ "$HOME/.cargo/bin" ]]; then
-    export PATH="$HOME/.cargo/bin:$PATH"
-  fi
-fi
+[[ $- != *i* ]] && return
 
 {{ if eq .chezmoi.osRelease.id "fedora" }}
 # Source global definitions
@@ -36,12 +21,6 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
   PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
-
-# More PATH
-# Cargo
-if ! [[ "$PATH" =~ "$HOME/.cargo/bin" ]]; then
-  export PATH="$HOME/.cargo/bin:$PATH"
-fi
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -58,4 +37,3 @@ if [ -d ~/.bashrc.d ]; then
   done
 fi
 unset rc
-
