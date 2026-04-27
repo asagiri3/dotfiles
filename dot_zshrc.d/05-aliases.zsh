@@ -48,20 +48,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-function fetch() {
-    if [[ ! -v TERM_PROGRAM ]]; then
-        fastfetch
-    fi
-
-    if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
-        fastfetch --iterm "$HOME/.face" --logo-width 32
-    elif [[ "$TERM" == "foot" ]]; then
-        fastfetch --sixel "$HOME/.face"
-    else
-        fastfetch
-    fi
-}
-
 function build() {
     if [[ ! -f "$PWD/CMakeLists.txt" ]]; then
         echo "CMakeLists not found."

@@ -43,3 +43,6 @@ output_path = '~/.config/rofi/options/color.rasi'
 input_path = './templates/btop.theme'
 output_path = '~/.config/btop/themes/m3.theme'
 
+[templates.zathura]
+input_path = './templates/zathurarc'
+output_path = '~/.config/zathura/zathurarc'
