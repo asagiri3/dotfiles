@@ -16,9 +16,19 @@ return {
     },
   },
   {
+    "ellisonleao/gruvbox.nvim",
+    opts = {
+      transparent_mode = true,
+      overrides = {
+        SnacksDashboardHeader = { fg = "#fe8019" }, -- gruvbox bright orange
+      },
+    },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin-mocha",
+      -- colorscheme = "gruvbox",
     },
   },
 }

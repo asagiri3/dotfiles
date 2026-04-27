@@ -11,6 +11,6 @@ shell-integration-features = no-cursor
 # command = "nu -l"
 
 background-opacity = 0.8
-# background-blur = true
+background-blur = true
 
 confirm-close-surface = false
