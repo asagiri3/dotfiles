@@ -1,0 +1,222 @@
+; CREDITS
+; Thanks to: @druskus20 (Github)
+; Thanks to: JustineSmithies (Codeberg)
+; For this config !!
+
+; Monitor that i support:
+; #1: Virtual-1 - My VM
+; #1: eDP-1 - My laptop monitor
+; #2: HDMI-A-1 - My extended monitor
+
+; To init all bar for all monitor, use the script in `$HOME/.config/eww/bar/scripts/start.sh`
+
+(include "var.yuck") ; global var
+(defvar eww "eww -c $HOME/.config/eww/bar")
+
+;============== WORKSPACES ==============
+
+(deflisten workspaces "eww-niri-workspaces")
+(defwidget workspaces [monitor]
+  (box :orientation "h"
+       :class "workspaces"
+       :space-evenly false
+    (for wsp in {"${workspaces.outputs[monitor].workspaces}"}
+      (eventbox :cursor "pointer"
+        (button :onclick "niri msg action focus-workspace ${wsp.index}"
+          (box :class "workspace ${wsp.is_active ? 'active' : 'inactive'} ${arraylength(wsp.columns) == 0 ? 'empty' : ''}"
+                (label :text "${wsp.columns != [] ? work : non}")))))))
+; (workspaces :monitor "HDMI-1")
+; SPECIAL THANKS TO druskus20 FOR THIS !
+; I want to sort index by default because when you named a workspace, it will have index 1 or something very low
+; but this program doesn't sort by default. A pull request?
+
+;============== BATTERY ==============
+
+(deflisten batteries "eww-batteries-rs")
+(defwidget battery [battery]
+ (tooltip
+  (label :class "tooltip" :text "${batteries.battery != 'null' ?
+            'percentage: ${batteries.battery.batteries[battery].percentage}%\\\nstate: ${batteries.battery.batteries[battery].state == 'unknown'
+            || batteries.battery.batteries[battery].state != 'discharing' && batteries.battery.batteries[battery].percentage == '100' ?
+                'Pluging' :  batteries.battery.batteries[battery].state}'
+            : 'Unknown'}")
+    (box :orientation "h"
+         :class "battery"
+         :space-evenly false
+        "${batteries.battery != 'null' ? batteries.battery.batteries[battery].symbol : '󰂃'}")
+    )
+)
+
+;============== TIMES ==============
+
+(defpoll hour :interval "1s" "date +%I")
+(defpoll min  :interval "1s" "date +%M")
+(defpoll meridiem :interval "1s" "date +%p")
+(defwidget middle []
+    (box :orientation "h"
+         :space-evenly false
+         "${hour}:${min} ${meridiem}"))
+
+;============== DATE ==============
+
+(defpoll day_of_week :interval "10m" "date +%a")
+(defpoll day         :interval "10m" "./scripts/day.sh")
+(defpoll month       :interval "1h"  "date +%b")
+(defpoll year        :interval "1h"  "date +%Y")
+
+(defwidget date []
+    (box :orientation "h"
+         :space-evenly false
+         :class "date"
+         "${day_of_week} ${day} ${month} ${year}"))
+
+;============== TRAY ==============
+
+(defvar retray false)
+(defwidget tray []
+    (eventbox :onhover "${eww} update retray=true" :onhoverlost "${eww} update retray=false"
+        (box :space-evenly false
+             :class "tray"
+            (revealer :reveal retray
+                      :transition "slideleft"
+                      :duration "550ms"
+                      (systray :class "render-tray" :spacing 5 :icon-size 14))
+            (box :orientation "h"
+                 :space-evenly false
+                 (label :text "")))))
+
+;============== POWER ==============
+
+(defvar repower false)
+(defwidget power []
+    (eventbox :onhover "${eww} update repower=true"
+              :onhoverlost "${eww} update repower=false"
+        (box :orientation "h"
+             :space-evenly false
+             :class "power-menu"
+             (revealer :reveal repower
+                       :transition "slideleft"
+                       :duration "550ms"
+
+                (box :orientation "h"
+                     :spacing 10
+                     :space-evenly false
+                     :class "box-button"
+                     (button :class "button-logout" :tooltip "Logout" :onclick "killall niri" "󰍃")
+                     (button :class "button-reboot" :tooltip "Reboot" :onclick "reboot" "")
+                     ))
+             (button :class "button-shutdown" :tooltip "Shutdown" :onclick "shutdown now" "⏻"))))
+
+;============== AUDIO ==============
+
+(deflisten speakers :initial '{ "volume": 0, "muted": "false" }' "./scripts/listen-volume.sh")
+; not me wrote this script, owner is druskus20
+; also this widget i inspired by druskus20. Thanks druskus20 too much
+(defvar reaudio false)
+(defwidget speakers []
+    (tooltip
+        (label :class "tooltip" :text '${speakers.volume}%')
+        (eventbox :onhover "${eww} update reaudio=true"
+                  :onhoverlost "${eww} update reaudio=false"
+                (box :class "volume"
+                     :space-evenly false
+                 (revealer :reveal reaudio
+                           :transition "slideleft"
+                           :duration "550ms"
+                    (scale :class "volbar ${speakers.volume > 100 ? 'over' : ''}"
+                           :min 0
+                           :max 101
+                           :value "${speakers.volume}"
+                           :draw-value true
+                           :value-pos "right"
+                           :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%")
+                     )
+                (button :class "icon ${ speakers.volume > 100 ? 'over' : '' } ${ speakers.muted ? 'muted' : '' }"
+                :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+                :onrightclick "pavucontrol"
+                (label :text "${ speakers.muted ? '󰖁' :
+                                 speakers.volume > 70 ? '󰕾' :
+                                 speakers.volume > 35 ? '󰖀' :
+                                 '󰕿' }"))))))
+
+;============== BAR WIDGET ==============
+
+(defvar space 0)
+(defwidget bar [monitor]
+  (box :orientation "h"
+       :space-evenly true
+       :class "bar"
+    (box :class "left"
+         :halign "start"
+         :space-evenly false
+         :spacing space
+      (workspaces :monitor monitor))
+    (box :class "center"
+         :halign "center"
+         :space-evenly false
+         :spacing space
+         (middle))
+    (box :class "right"
+         :halign "end"
+         :spacing space
+         :space-evenly false
+      (tray)
+      (speakers)
+      (battery :battery "BAT0")
+      (date)
+      (power)
+      )))
+
+;============== DEFEINE WINDOW ==============
+
+(defwindow barVirtual-1 ; for `Virtual-1` (my Linux VM) monitor
+    ; :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x 0
+                        :y 0
+                        :width "100%"
+                        :height "20px"
+                        :anchor "bottom center")
+    :exclusive true
+    :focusable false
+    :stacking "fg"
+(bar :monitor "Virtual-1"))
+
+(defwindow barVirtual-2 ; for `Virtual-2` (my Linux VM) monitor
+    ; :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x 0
+                        :y 0
+                        :width "100%"
+                        :height "20px"
+                        :anchor "bottom center")
+    :exclusive true
+    :focusable false
+    :stacking "fg"
+(bar :monitor "Virtual-2"))
+
+(defwindow bareDP-1 ; for `eDP-1` (my laptop monitor) monitor
+    ; :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x 0
+                        :y 0
+                        :width "100%"
+                        :height "20px"
+                        :anchor "bottom center")
+    :exclusive true
+    :focusable false
+    :stacking "fg"
+(bar :monitor "eDP-1"))
+
+(defwindow barHDMI-A-1 ; for `HDMI-A-1` (my extended monitor) monitor
+    ; :monitor 1
+    :windowtype "dock"
+    :geometry (geometry :x 0
+                        :y 0
+                        :width "100%"
+                        :height "20px"
+                        :anchor "bottom center")
+    :exclusive true
+    :focusable false
+    :stacking "fg"
+(bar :monitor "HDMI-A-1"))

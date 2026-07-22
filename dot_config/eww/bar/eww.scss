@@ -1,0 +1,152 @@
+@import '../colors.scss';
+
+* {
+  all: unset;
+}
+
+// $lay: $surface_container_low;
+// $on_lay: $on_surface;
+$lay: mix($surface_bright, $surface, 60%);
+$on_lay: $on_surface_variant;
+// $green: #73d66e;
+// $red: #e84e4c;
+// $yellow: #bdce7b;
+$green: $normal2;
+$red: $normal1;
+$yellow: $normal3;
+
+window {
+  font-family: "Montserrat SemiBold", sans-serif;
+  font-size: 10px;
+}
+
+.workspaces {
+  font-family: "Rubik Medium", sans-serif; // for large icons
+  margin: 3px;
+  padding-left: 10px;
+
+  .workspace {
+    padding: 3px 5px;
+  }
+
+  .workspace.active {
+    color: $primary;
+  }
+}
+
+.tooltip {
+  background-color: $lay;
+  color: $on_lay;
+  margin: 3px;
+  padding: 3px 5px;
+}
+
+// GLOBAL SLIDER STYLE
+
+scale trough {
+  all: unset;
+  background-color: $surface_variant;
+  border-radius: 5px;
+  min-height: 5px;
+  min-width: 80px;
+  margin: .3rem 0 .3rem 0;
+}
+
+scale trough highlight {
+  background-color: $primary;
+  border-radius: 5px;
+}
+
+scale.over trough highlight {
+  background-color: $red;
+  border-radius: 5px;
+}
+
+// CLOSED
+
+.bar {
+  // background: $surface_container_high;
+  background: $surface;
+
+  .center {
+    margin: 3px;
+    padding: 3px 7px;
+    background: $lay;
+    color: $on_lay;
+  }
+
+  .right {
+    padding-right: 10px;
+
+    .tray {
+      margin: 3px;
+      padding: 3px 7px;
+      background: $lay;
+      color: $on_lay;
+
+      .render-tray {
+        padding-right: 5px;
+      }
+    }
+
+    .volume {
+      margin: 3px;
+      padding: 3px 7px;
+      background: $lay;
+      color: $on_lay;
+
+      .volbar {
+        padding-right: 5px;
+      }
+    }
+
+    .battery {
+      margin: 3px;
+      padding: 3px 7px;
+      background: $lay;
+      color: $on_lay;
+    }
+
+    .date {
+      font-family: "Literata Medium", serif; // regular too much pixalated at small size
+      margin: 3px;
+      padding: 3px 7px;
+      background: $lay;
+      color: $on_lay;
+    }
+
+    .power-menu {
+      font-family: "FiraCode Nerd Font Propo", sans-serif;
+      margin: 3px;
+      padding: 3px 7px;
+      background: $lay;
+      color: $on_lay;
+
+      .box-button {
+        padding-right: 10px;
+
+        // .button-logout {
+        //   color: $secondary;
+        // }
+
+        // .button-reboot {
+        //   color: $primary;
+        // }
+        .button-logout {
+          color: $green;
+        }
+
+        .button-reboot {
+          color: $yellow;
+        }
+      }
+
+      // .button-shutdown {
+      //   color: $error;
+      // }
+      .button-shutdown {
+        color: $red;
+      }
+    }
+  }
+}

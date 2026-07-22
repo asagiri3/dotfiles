@@ -1,0 +1,5 @@
+configuration {
+    kb-accept-custom-alt: "";
+    kb-custom-1: "Control+L";
+    kb-custom-2: "Control+Shift+Return,Control+colon";
+}

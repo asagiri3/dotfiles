@@ -1,0 +1,4 @@
+[templates.wezterm]
+input_path = 'MATUGEN_CONF/templates_ansi/wezterm.lua'
+output_path = '~/.config/wezterm/colors.lua'
+

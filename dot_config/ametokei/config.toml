@@ -1,0 +1,14 @@
+[general]
+show_seconds = true
+format_date = "%a, %h %d %Y"
+blink_colon = true
+color = "Cyan"
+center = true
+hour12h = true
+
+[general.meridiem]
+am = " [SA]"
+pm = " [CH]"
+
+[general.weather]
+level = 125

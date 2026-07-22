@@ -1,0 +1,136 @@
+@import url('./colors.css');
+
+* {
+    border: none;
+    border-radius: 0;
+
+    font-family: 'Rubik Medium', sans-serif;
+    font-size: 13px;
+
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    background: alpha(@surface_container_high, 0.9);
+    border-radius: 12px;
+    border: 1px solid alpha(@outline, 0.4);
+    padding: 6px 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.15s ease-in-out;
+}
+
+tooltip label {
+    color: @on_surface;
+    font-size: 12px;
+    font-weight: 500;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+
+.modules-left {
+    margin:10px 0px 0px 10px;
+}
+.modules-center {
+    margin:10px 0px 0px 0px;
+}
+.modules-right {
+    margin: 10px 10px 0px 0px;
+}
+
+.modules-left, .modules-center, .modules-right {
+    padding: 5px;
+    border-radius:10px;
+    background: alpha(@background,.80);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
+}
+
+#custom-appmenu {
+    font-size: 4px;
+    background-image: url('/usr/share/icons/cachyos.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 0px 12px;
+}
+
+#workspaces {
+    transition: all 1050ms ease-in-out;
+}
+
+#workspaces button {
+    transition: all 300ms ease-in-out;
+    padding: 0 3px;
+    border-radius: 12px;
+    min-width: 15px;
+    color: transparent;
+    background-color: @surface_variant;
+    border: 2px solid transparent;
+}
+
+#workspaces button:hover {
+    background-color: @secondary;
+    min-width: 25px;
+    color: @on_secondary;
+}
+
+#workspaces button.active {
+    min-width: 50px;
+    color: @on_primary;
+    background-color: @primary;
+}
+
+#workspaces button.active:hover {
+    min-width: 50px;
+    color: @on_primary_container;
+    background-color: @primary_container;
+}
+
+#workspaces button.empty:hover {
+    background-color: @outline;
+    color: @on_outline;
+}
+
+#clock,
+#network,
+#custom-power,
+#custom-notification,
+#battery,
+#tray,
+#power-profiles-daemon,
+#pulseaudio,
+#bluetooth,
+#custom-expand,
+#custom-end,
+#group-expand
+{
+    padding: 0px 5px;
+    color: @on_background;
+}
+
+#pulseaudio {
+    transition: all 300ms ease-in-out;
+}
+
+#power-profiles-daemon {
+    color: @on_background;
+}
+
+#group-expand {
+    transition: all .3s ease; 
+}
+
+#custom-expand {
+    color:alpha(@outline,.5);
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, .7);
+    transition: all .3s ease; 
+}
+
+#custom-end {
+    color:alpha(@outline,.5);
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, .7);
+}

@@ -1,0 +1,54 @@
+{
+    "editor.renderWhitespace": "all",
+    "cmake.configureOnEdit": false,
+    // cmake stuffs
+    "cmake.showOptionsMovedNotification": false, // idk, deprecated??
+    "cmake.showConfigureWithDebuggerNotification": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "git.ignoreMissingGitWarning": true,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+
+    // rust-analyzer stuffs
+    "rust-analyzer.diagnostics.enable": false,
+    "rust-analyzer.checkOnSave": true,
+    "rust-analyzer.check.command": "clippy",
+
+    // font
+    "editor.fontFamily": "Fira Code",
+    "editor.fontWeight": "normal",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontFamily"
+    ],
+    "editor.fontSize": 14,
+
+    // terminal stuffs
+    "terminal.integrated.shellIntegration.enabled": false,
+    "terminal.integrated.minimumContrastRatio": 1,
+    "editor.minimap.enabled": false, // enable later, if i work for a big project or big files
+    "breadcrumbs.enabled": false, // temp theme
+    "workbench.iconTheme": "material-icon-theme",
+    "explorer.compactFolders": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmPasteNative": false,
+    "workbench.startupEditor": "none",
+
+    // idk what i doing here
+    "editor.semanticHighlighting.enabled": true,
+    "window.titleBarStyle": "custom",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    // "window.menuBarVisibility": "compact",
+    "window.commandCenter": false,
+    "window.openWithoutArgumentsInNewWindow": "on",
+    "window.restoreWindows": "none",
+    "files.autoSave": "afterDelay",
+    // "gitlens.mode.active": "review",
+    "files.eol": "\n",
+    "window.menuBarVisibility": "compact",
+}

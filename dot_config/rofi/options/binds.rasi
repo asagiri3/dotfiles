@@ -1,0 +1,8 @@
+configuration {
+    kb-row-down: "Control+j,Control+l";
+    kb-row-up: "Control+k,Control+h";
+    kb-accept-entry: "Control+semicolon,Return";
+    kb-remove-char-back: "BackSpace";
+    kb-remove-to-eol: "";
+    kb-mode-complete: "";
+}

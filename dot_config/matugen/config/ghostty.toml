@@ -1,0 +1,4 @@
+[templates.ghostty]
+input_path = '$MATUGEN_CONF/templates_ansi/ghostty'
+output_path = '~/.config/ghostty/config-colors'
+post_hook = 'pkill -SIGUSR2 ghostty'

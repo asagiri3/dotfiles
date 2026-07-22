@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+STATE="$HOME/.config/dots/isgtk"
+
+isrofi="$(<$HOME/.config/dots/isrofi)"
+
+if [[ "$isrofi" == "true" ]]; then
+    WAL="$(~/.config/rofi/walselection.sh)"
+else
+    WAL="$(~/.config/wofi/scripts/wallsec.sh)"
+fi
+
+echo "$WAL" >&2
+MODE="$(<"$STATE")"
+echo "GTK: $MODE" >&2
+
+case "$MODE" in
+true)
+    themesec -m "$WAL"
+    themesec -d -g "$WAL"
+    ;;
+false) themesec -m "$WAL" ;;
+*)
+    echo "Invalid state: $MODE" >&2
+    exit 1
+    ;;
+esac
+
+MODE="$(<"$HOME/.config/dots/is_qtkde")"
+echo "QT: $MODE" >&2
+
+case "$MODE" in
+true)
+    themesec -G "$WAL"
+    ;;
+*) exit 0 ;;
+esac
+
+MODE="$(<"$HOME/.config/dots/chsat_color")"
+echo "chsat: $MODE" >&2
+
+case "$MODE" in
+true)
+    themesec -a "$WAL"
+    ;;
+false)
+    exit 0
+    ;;
+esac

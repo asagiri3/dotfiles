@@ -1,0 +1,17 @@
+[options]
+master_path = "~/.config/dots"
+
+[settings.master]
+clipboardmanager = "clipvault"
+isrofi = "true"
+isgtk = "true"
+is_qtkde = "true"
+style = "custom"
+theme = "dark"
+waldir = "$HOME/.wallpaper/"
+ewwbar_dir = "$HOME/.config/eww/bar/"
+chsat_color = "true"
+
+[settings.launcher]
+launchertype = "vertical"
+walsectype = "horizontal"
